@@ -333,6 +333,68 @@ header {
     box-shadow: 0 6px 20px rgba(131, 58, 180, 0.4);
 }
 
+/* Política de Privacidade */
+.policy-hero {
+    text-align: center;
+}
+
+.policy-hero h1 {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin: 1rem 0;
+}
+
+.policy-meta {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--accent-green);
+    font-size: 0.9rem;
+}
+
+.policy-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.policy-list {
+    list-style: decimal;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.policy-list h3 {
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.policy-list p {
+    color: var(--text-light);
+    margin-bottom: 0.4rem;
+}
+
+.policy-list ul {
+    margin: 0.5rem 0 0 1rem;
+    color: var(--text-light);
+    display: grid;
+    gap: 0.4rem;
+}
+
+.policy-notice {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    background: var(--light-gray);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-green);
+}
+
 /* Footer */
 footer {
     background: var(--dark-green);
