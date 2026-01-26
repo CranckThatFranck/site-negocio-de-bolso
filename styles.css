@@ -479,7 +479,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .help-hero .intro {
-    color: var(--white);
+    color: #f0f0f0 !important;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    opacity: 1;
 }
 
 .help-container {
