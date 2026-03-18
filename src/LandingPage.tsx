@@ -263,20 +263,24 @@ export default function LandingPage() {
                   <p className="text-gray-400 mb-8 border-b border-gray-800 pb-8">Perfeito para quem está começando o próprio negócio offline.</p>
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500" />
-                      <span>100% Offline (Não necessita internet)</span>
+                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
+                      <span>Até 100 Clientes e Produtos</span>
                     </li>
                     <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500" />
-                      <span>Gerador de Recibos em PDF</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500" />
+                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
                       <span>Controle de Estoque e Vendas Básico</span>
                     </li>
                     <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500" />
-                      <span>Backup Manual Offline</span>
+                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
+                      <span>Programa de Fidelidade Local</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-gray-300">
+                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
+                      <span>Gerador de Recibos compartilháveis</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-gray-300">
+                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
+                      <span>100% Offline com Backup Manual</span>
                     </li>
                   </ul>
                   <a 
@@ -300,23 +304,31 @@ export default function LandingPage() {
                   <p className="text-gray-400 mb-8 border-b border-gray-800 pb-8">Acesso irrestrito a todo o poder do ecossistema GAIA.</p>
                   <ul className="space-y-4 mb-8">
                     <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green" />
-                      <span><strong className="text-white">Acesso Total ao Painel Web</strong></span>
+                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
+                      <span><strong className="text-white">Clientes e Produtos Ilimitados</strong></span>
                     </li>
                     <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green" />
-                      <span><strong className="text-white">Múltiplos Usuários Sincronizados</strong></span>
+                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
+                      <span><strong className="text-white">Múltiplos Usuários e Gestão de Equipe</strong></span>
                     </li>
                     <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green" />
-                      <span>Funcionalidade de Caixa Avançada</span>
+                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
+                      <span><strong className="text-white">Acesso Total ao Painel Web em Tempo Real</strong></span>
                     </li>
                     <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green" />
-                      <span>Backup Automático em Nuvem</span>
+                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
+                      <span>Gestão de Serviços e Agendamentos</span>
                     </li>
                     <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green" />
+                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
+                      <span>Módulo de Caixa e Fiado Integrado</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-gray-300">
+                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
+                      <span>Sincronização e Backup Automático em Nuvem</span>
+                    </li>
+                    <li className="flex items-center gap-3 text-gray-300">
+                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
                       <span>Suporte Prioritário</span>
                     </li>
                   </ul>
