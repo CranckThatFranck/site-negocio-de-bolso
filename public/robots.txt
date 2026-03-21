@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Bloquear páginas que não agregam valor ao SEO ou privadas
+Disallow: /404
+Disallow: /admin
+Disallow: /login
+Disallow: /recuperar-senha
+
+# Diretiva absoluta do Sitemap
+Sitemap: https://negociodebolso.com/sitemap.xml
