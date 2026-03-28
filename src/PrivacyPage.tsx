@@ -37,16 +37,16 @@ export default function PrivacyPage() {
 
         <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-4 text-white">🛡️ Política de Privacidade — Negócio de Bolso</h1>
-          <p className="text-gray-400 mb-8">Versão 2.0 | Última atualização: 20 de Março de 2026</p>
+          <p className="text-gray-400 mb-8">Versão 3.0 | Última atualização: 28 de Março de 2026</p>
           
           <p className="text-gray-300 mb-12 text-lg">
-            Bem-vindo ao Negócio de Bolso. A sua privacidade e a segurança dos dados do seu negócio são os pilares da nossa tecnologia. Esta política descreve como tratamos informações em nossa plataforma (App Android, iOS e Painel Web).
+            Bem-vindo ao Negócio de Bolso. A sua privacidade e a segurança dos dados do seu negócio são os pilares da nossa tecnologia. Esta política descreve como tratamos informações em nossa plataforma (App Android e Painel Web).
           </p>
 
           <div className="space-y-10 text-gray-300">
             <section>
-              <h3 className="text-2xl font-semibold mb-3 text-white">1. Natureza da Operação e Papéis de Dados</h3>
-              <p className="mb-4">O Negócio de Bolso atua como uma ferramenta de gestão. Nos termos da Lei Geral de Proteção de Dados (LGPD):</p>
+              <h4 className="text-2xl font-semibold mb-3 text-white">1. Natureza da Operação e Papéis de Dados</h4>
+              <p className="mb-4">O Negócio de Bolso atua como uma ferramenta de gestão. Nos termos da Lei Geral de Proteção de Dados (<strong>LGPD</strong>):</p>
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong className="text-white">Você (Usuário/Lojista):</strong> É o Controlador dos dados de seus clientes, produtos e vendas.</li>
                 <li><strong className="text-white">Negócio de Bolso:</strong> Atua como Operador, fornecendo a infraestrutura tecnológica para o processamento dessas informações.</li>
@@ -54,59 +54,53 @@ export default function PrivacyPage() {
             </section>
 
             <section>
-              <h3 className="text-2xl font-semibold mb-3 text-white">2. Dados Coletados e Finalidade</h3>
-              <p className="mb-4">Para o funcionamento da plataforma GAIA 2.0, coletamos os seguintes dados:</p>
+              <h4 className="text-2xl font-semibold mb-3 text-white">2. Dados Coletados e Finalidade</h4>
+              <p className="mb-4">Para o funcionamento da plataforma, coletamos os seguintes dados:</p>
               <ul className="list-disc pl-5 space-y-4">
                 <li><strong className="text-white">Dados de Conta:</strong> Nome, e-mail e identificadores de login social (Google).<br /><span className="text-gray-400">Finalidade: Autenticação, criação de perfil único e controle de acesso.</span></li>
-                <li><strong className="text-white">Dados de Gestão (Input do Usuário):</strong> Informações sobre vendas, estoque, fluxo de caixa e cadastro de clientes.<br /><span className="text-gray-400">Finalidade: Prestação do serviço de gestão e geração de relatórios.</span></li>
-                <li><strong className="text-white">Dados de Equipe:</strong> E-mails e cargos de membros convidados para sua empresa.<br /><span className="text-gray-400">Finalidade: Gestão de permissões multi-usuário (exclusivo para Plano Premium).</span></li>
+                <li><strong className="text-white">Dados de Gestão:</strong> Informações sobre vendas, estoque, fluxo de caixa e cadastro de clientes.<br /><span className="text-gray-400">Finalidade: Prestação do serviço de gestão e geração de relatórios de desempenho.</span></li>
+                <li><strong className="text-white">Comunicação e Notificações:</strong> Preferências de recebimento de resumos e alertas.<br /><span className="text-gray-400">Finalidade: Envio de Resumos Semanais de desempenho e Alertas de Estoque Crítico via e-mail e notificações Push.</span></li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-2xl font-semibold mb-3 text-white">3. Segurança e Manipulação Técnica</h3>
-              <p className="mb-4">Implementamos medidas rigorosas de "tecniquês" para garantir que seus dados não vazem e não se misturem:</p>
+              <h4 className="text-2xl font-semibold mb-3 text-white">3. Segurança e Manipulação Técnica</h4>
+              <p className="mb-4">Implementamos medidas rigorosas para garantir a integridade dos seus dados:</p>
               <ul className="list-disc pl-5 space-y-4">
-                <li><strong className="text-white">Isolamento Multi-tenant:</strong> Utilizamos um identificador exclusivo (X-Tenant-ID) em todas as requisições. Isso garante que os dados da Empresa A sejam física e logicamente invisíveis para a Empresa B no banco de dados.</li>
-                <li><strong className="text-white">Criptografia em Trânsito:</strong> Toda comunicação entre seu dispositivo e nossos servidores ocorre via protocolo SSL/TLS (HTTPS) com criptografia de ponta.</li>
-                <li><strong className="text-white">Proteção de Credenciais:</strong> Senhas são processadas utilizando algoritmos de hashing seguro (SHA-256), impedindo o armazenamento em texto plano.</li>
-                <li><strong className="text-white">Segurança da Sessão:</strong> O acesso é controlado via JSON Web Tokens (JWT), com renovação automática e validação silenciosa, garantindo que apenas dispositivos autorizados acessem as informações.</li>
+                <li><strong className="text-white">Isolamento Multi-tenant:</strong> Utilizamos o identificador exclusivo <strong>X-Tenant-ID</strong> em todas as requisições, garantindo que os dados da sua empresa sejam física e logicamente invisíveis para outros usuários no banco de dados.</li>
+                <li><strong className="text-white">Criptografia:</strong> Toda comunicação ocorre via protocolo SSL/TLS (HTTPS). Senhas são processadas utilizando algoritmos de hashing seguro (BCrypt), impedindo o armazenamento em texto plano.</li>
+                <li><strong className="text-white">Segurança da Sessão:</strong> O acesso é controlado via JSON Web Tokens (JWT) com assinatura RSA, garantindo que apenas dispositivos autorizados acessem as informações.</li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-2xl font-semibold mb-3 text-white">4. Armazenamento e Sincronização</h3>
-              <ul className="list-disc pl-5 space-y-4">
-                <li><strong className="text-white">Modo Offline (Free):</strong> Os dados são armazenados localmente no banco de dados SQLite/Room do seu dispositivo.</li>
-                <li><strong className="text-white">Sincronização em Nuvem (Premium):</strong> Os dados são replicados em nossos servidores de banco de dados (PostgreSQL/JSONB) para permitir o uso em múltiplos dispositivos e acesso via Painel Web.</li>
-                <li><strong className="text-white">Backups:</strong> Realizamos backups automáticos periódicos em nuvem para garantir a recuperação de desastres (Plano Premium).</li>
-              </ul>
-            </section>
-
-            <section>
-              <h3 className="text-2xl font-semibold mb-3 text-white">5. Compartilhamento com Terceiros</h3>
-              <p className="mb-4">Nós não vendemos, não alugamos e não comercializamos seus dados ou os dados de seus clientes. O compartilhamento ocorre apenas com provedores de infraestrutura essenciais:</p>
+              <h4 className="text-2xl font-semibold mb-3 text-white">4. Compartilhamento com Terceiros</h4>
+              <p className="mb-4">Não vendemos nem comercializamos seus dados. O compartilhamento ocorre apenas com provedores essenciais:</p>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong className="text-white">Hospedagem e Banco de Dados:</strong> Para manutenção da plataforma online.</li>
-                <li><strong className="text-white">Processamento de Pagamentos:</strong> Via Google Play Store para gestão de assinaturas.</li>
-                <li><strong className="text-white">Suporte Técnico:</strong> Para resolução de tickets abertos pelo usuário.</li>
+                <li><strong className="text-white">Hospedagem (DigitalOcean/Nginx):</strong> Para manutenção da plataforma online.</li>
+                <li><strong className="text-white">Comunicação (Brevo & Firebase):</strong> Para o envio técnico de e-mails transacionais (resumos e alertas) e notificações push no dispositivo móvel.</li>
+                <li><strong className="text-white">Pagamentos (Google Play Store):</strong> Para gestão de assinaturas Premium.</li>
               </ul>
             </section>
 
             <section>
-              <h3 className="text-2xl font-semibold mb-3 text-white">6. Direitos do Usuário (LGPD)</h3>
-              <p className="mb-4">Você possui o controle total sobre seus dados e pode, a qualquer momento via app ou Painel Web:</p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>Acessar e exportar seus dados.</li>
-                <li>Corrigir informações incompletas ou inexatas.</li>
-                <li>Solicitar a exclusão definitiva de sua conta e todos os dados associados (limpeza de banco de dados).</li>
-                <li>Revogar o consentimento de uso de cookies de autenticação.</li>
+              <h4 className="text-2xl font-semibold mb-3 text-white">5. Direitos do Usuário e Exclusão de Dados</h4>
+              <p className="mb-4">Você possui controle total sobre seus dados. Além das opções de edição no app, você pode solicitar a remoção completa e definitiva de todos os seus registros em nossos servidores.</p>
+              
+              <p className="mb-2 font-semibold text-white">Como solicitar a exclusão total:</p>
+              <p className="mb-4">Envie um e-mail para <a href="mailto:deleteme@negociodebolso.com" className="text-gaia-green hover:underline">deleteme@negociodebolso.com</a> contendo:</p>
+              <ul className="list-disc pl-5 space-y-2 mb-4">
+                <li>Nome completo;</li>
+                <li>E-mail de cadastro;</li>
+                <li>Caso tenha utilizado o Google Login, informe o e-mail da conta Google associada;</li>
+                <li>Um breve texto autorizando a remoção total e irreversível dos dados.</li>
               </ul>
+              <p className="mb-4">O prazo de resposta e conclusão da remoção é de até 48h úteis. Após este processo, os dados não poderão ser recuperados.</p>
             </section>
 
             <section>
-              <h3 className="text-2xl font-semibold mb-3 text-white">7. Contato e Encarregado de Dados</h3>
-              <p className="mb-4">Para qualquer dúvida jurídica ou técnica sobre sua privacidade, entre em contato com nosso DPO (Data Protection Officer):</p>
+              <h4 className="text-2xl font-semibold mb-3 text-white">6. Contato</h4>
+              <p className="mb-4">Para dúvidas jurídicas ou técnicas:</p>
               <p className="flex items-center gap-2">
                 <span className="text-xl">📧</span>
                 <a href="mailto:contato@negociodebolso.com" className="text-gaia-green hover:underline">contato@negociodebolso.com</a>
