@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  Smartphone, MonitorDot, WifiOff, Receipt, 
+import {
+  Smartphone, MonitorDot, WifiOff, Receipt,
   Users, BarChart3, Lock, ShieldCheck, Fingerprint, Database,
   CheckCircle2, Instagram, Linkedin, Mail
 } from 'lucide-react';
@@ -27,7 +27,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gray-950 text-gray-100 font-sans selection:bg-gaia-green selection:text-white">
       {/* Background radial fluid */}
-      <div 
+      <div
         className="fixed inset-0 z-0 pointer-events-none"
         style={{
           background: 'radial-gradient(circle at top left, color-mix(in srgb, #2E7D32 16%, transparent), transparent 34%), radial-gradient(circle at bottom right, rgba(248, 209, 125, 0.12), transparent 28%)'
@@ -48,9 +48,9 @@ export default function LandingPage() {
               <a href="#planos" className="hover:text-white transition-colors">Planos</a>
               <a href="#contato" className="hover:text-white transition-colors">Contato</a>
             </nav>
-            <a 
-              href="https://app.negociodebolso.com/login" 
-              target="_blank" 
+            <a
+              href="https://app.negociodebolso.com/login"
+              target="_blank"
               rel="noopener noreferrer"
               className="bg-gaia-green hover:bg-green-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-gaia-green/20"
             >
@@ -69,17 +69,17 @@ export default function LandingPage() {
               <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto">
                 Vender offline, gerenciar online. O ecossistema completo para microempreendedores.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <a 
-                  href="https://play.google.com/store/apps/details?id=com.negociodebolso.app" 
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-8 py-3.5 bg-gray-100 text-gray-900 font-bold rounded-full hover:bg-white transition-transform hover:scale-105 shadow-xl"
                 >
                   Download na Google Play Store
                 </a>
-                <a 
+                <a
                   href="https://app.negociodebolso.com/login"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -90,16 +90,16 @@ export default function LandingPage() {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
               className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-gaia-green/10 border border-gray-800"
             >
               <div className="aspect-video bg-gray-900 flex items-center justify-center relative">
-                <img 
-                  src={capaImagem} 
-                  alt="Interface do Sistema" 
+                <img
+                  src={capaImagem}
+                  alt="Interface do Sistema"
                   className="w-full h-full object-cover opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-80" />
@@ -107,16 +107,16 @@ export default function LandingPage() {
             </motion.div>
           </section>
 
-          {/* O Ecossistema Negócio de Bolso 2.0 */}
+          {/* O Ecossistema GAIA 2.0 */}
           <section id="ecossistema" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">O Ecossistema Negócio de Bolso 2.0</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">O Ecossistema GAIA 2.0</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
                 Uma arquitetura construída para funcionar em qualquer situação. Seu celular para a linha de frente, o computador para a gestão estratégica.
               </p>
             </div>
 
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -151,7 +151,7 @@ export default function LandingPage() {
                   <MonitorDot className="w-7 h-7" />
                 </div>
                 <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                  Painel Web 
+                  Painel Web
                   <span className="text-xs font-semibold bg-yellow-500/20 text-yellow-500 px-3 py-1 rounded-full border border-yellow-500/30">Premium</span>
                 </h3>
                 <ul className="space-y-4 text-gray-300">
@@ -180,7 +180,7 @@ export default function LandingPage() {
           <section id="funcionalidades" className="py-24 border-t border-gray-800/50 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col md:flex-row items-center gap-12">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -194,7 +194,7 @@ export default function LandingPage() {
                   <p className="text-gray-400 text-lg mb-8 leading-relaxed">
                     A infraestrutura do Negócio de Bolso 2.0 foi desenhada para proteger o seu principal ativo: seus dados. Com múltiplas camadas de proteção, garantimos que apenas você e sua equipe autorizada acessem os números do seu negócio.
                   </p>
-                  
+
                   <div className="space-y-6">
                     <div className="flex gap-4 items-center">
                       <div className="w-12 h-12 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center shrink-0">
@@ -229,17 +229,17 @@ export default function LandingPage() {
                 </motion.div>
 
                 <div className="md:w-1/2 relative flex justify-center mt-10 md:mt-0">
-                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle,rgba(250,204,21,0.05)_0%,transparent_60%)] -z-10" />
-                   <div className="backdrop-blur bg-gray-900/60 border border-gray-800 p-8 rounded-3xl w-full max-w-sm transform rotate-2 hover:rotate-0 transition-all duration-500">
-                      <div className="flex items-center justify-center mb-6">
-                        <Lock className="w-12 h-12 text-yellow-400 opacity-80" />
-                      </div>
-                      <div className="space-y-4">
-                        <div className="h-2 w-3/4 bg-gray-800 rounded mx-auto" />
-                        <div className="h-2 w-1/2 bg-gray-800 rounded mx-auto" />
-                        <div className="h-10 border border-yellow-500/30 rounded-lg mt-6 bg-yellow-500/10 flex items-center justify-center text-yellow-500 text-sm font-medium">Ambiente Seguro</div>
-                      </div>
-                   </div>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle,rgba(250,204,21,0.05)_0%,transparent_60%)] -z-10" />
+                  <div className="backdrop-blur bg-gray-900/60 border border-gray-800 p-8 rounded-3xl w-full max-w-sm transform rotate-2 hover:rotate-0 transition-all duration-500">
+                    <div className="flex items-center justify-center mb-6">
+                      <Lock className="w-12 h-12 text-yellow-400 opacity-80" />
+                    </div>
+                    <div className="space-y-4">
+                      <div className="h-2 w-3/4 bg-gray-800 rounded mx-auto" />
+                      <div className="h-2 w-1/2 bg-gray-800 rounded mx-auto" />
+                      <div className="h-10 border border-yellow-500/30 rounded-lg mt-6 bg-yellow-500/10 flex items-center justify-center text-yellow-500 text-sm font-medium">Ambiente Seguro</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -283,7 +283,7 @@ export default function LandingPage() {
                       <span>100% Offline com Backup Manual</span>
                     </li>
                   </ul>
-                  <a 
+                  <a
                     href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -332,7 +332,7 @@ export default function LandingPage() {
                       <span>Suporte Prioritário</span>
                     </li>
                   </ul>
-                  <a 
+                  <a
                     href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -354,7 +354,7 @@ export default function LandingPage() {
             <div className="max-w-3xl mx-auto px-4 relative z-10">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para evoluir a gestão?</h2>
               <p className="text-lg text-gray-400 mb-10">Junte-se a milhares de microempreendedores que já controlam o fluxo de caixa no Negócio de Bolso.</p>
-              <a 
+              <a
                 href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -369,36 +369,36 @@ export default function LandingPage() {
         {/* Footer */}
         <footer id="contato" className="border-t border-gray-900 bg-gray-950 pt-16 pb-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto flex flex-col items-center">
-            <img 
-              src={gaiaWorksLogo} 
-              alt="Gaia Works" 
+            <img
+              src={gaiaWorksLogo}
+              alt="Gaia Works"
               className="h-12 w-auto mb-6 opacity-80 grayscale hover:grayscale-0 transition-all"
             />
             <p className="text-gray-500 text-sm mb-6 text-center max-w-lg">
               Negócio de Bolso - Um projeto <span className="text-white font-medium">Gaia Works</span>.<br />
               Entre em contato conosco para suporte, dúvidas e parcerias.
             </p>
-            
+
             <div className="flex items-center gap-4 mb-8">
-              <a 
-                href="mailto:contato@negociodebolso.com" 
+              <a
+                href="mailto:contato@negociodebolso.com"
                 className="flex items-center gap-2 text-gaia-green hover:text-green-400 transition-colors bg-gray-900 px-4 py-2 rounded-full border border-gray-800"
               >
                 <Mail className="w-4 h-4" />
                 <span className="font-medium text-sm">contato@negociodebolso.com</span>
               </a>
-              <a 
-                href="https://www.linkedin.com/company/neg%C3%B3cio-de-bolso/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/company/neg%C3%B3cio-de-bolso/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-600 transition-all"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a 
-                href="https://www.instagram.com/appnegociodebolso/" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/appnegociodebolso/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-600 transition-all"
                 aria-label="Instagram"
