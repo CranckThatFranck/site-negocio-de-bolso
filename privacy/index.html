@@ -35,9 +35,9 @@
     <main>
         <section class="section policy-hero">
             <div class="container">
-                <p class="policy-meta">Última atualização: 05/01/2026</p>
-                <h1>Política de Privacidade — Negócio de Bolso</h1>
-                <p class="intro">Transparência sobre como tratamos dados hoje e no futuro para manter sua confiança.</p>
+                <p class="policy-meta">Versão 4.0 | Última atualização: 08 de Abril de 2026</p>
+                <h1>🛡️ Política de Privacidade — Negócio de Bolso</h1>
+                <p class="intro">Bem-vindo ao Negócio de Bolso (um produto do ecossistema Gaia Works). A sua privacidade e a segurança dos dados do seu negócio são os pilares da nossa tecnologia. Esta política descreve como tratamos informações em nossa plataforma (App Android e Painel Web), incluindo nossas novas integrações avançadas de Inteligência Artificial.</p>
             </div>
         </section>
 
@@ -45,54 +45,71 @@
             <div class="container policy-content">
                 <ol class="policy-list">
                     <li>
-                        <h3>Quem somos</h3>
-                        <p>Negócio de Bolso é um aplicativo de gestão de vendas e estoque para pequenos negócios.</p>
-                    </li>
-                    <li>
-                        <h3>Coleta de dados</h3>
-                        <p><strong>Hoje:</strong> Não coletamos, armazenamos ou compartilhamos dados pessoais ou sensíveis.</p>
-                        <p><strong>Futuro:</strong> Podemos vir a coletar dados para melhorar funcionalidades. Qualquer mudança será comunicada com atualização desta política e, quando necessário, novo consentimento.</p>
-                    </li>
-                    <li>
-                        <h3>Uso de dados (apenas se/quando coletados)</h3>
+                        <h3>Natureza da Operação e Papéis de Dados</h3>
+                        <p>O Negócio de Bolso atua como uma ferramenta de gestão e inteligência aplicada. Nos termos da Lei Geral de Proteção de Dados (LGPD):</p>
                         <ul>
-                            <li>Operação do app e melhorias de produto.</li>
-                            <li>Suporte e prevenção a fraudes/abuso.</li>
-                            <li>Estatísticas agregadas e anônimas.</li>
+                            <li><strong>Você (Usuário/Lojista):</strong> É o Controlador dos dados de seus clientes, produtos e vendas.</li>
+                            <li><strong>Negócio de Bolso:</strong> Atua como Operador, fornecendo a infraestrutura tecnológica e de processamento (incluindo IA) dessas informações.</li>
                         </ul>
                     </li>
                     <li>
-                        <h3>Armazenamento e segurança</h3>
-                        <p>Dados (quando existirem) são processados com medidas de segurança razoáveis.</p>
-                        <p>Caso usemos terceiros (ex.: backup em nuvem), eles serão listados e sujeitos a contratos e leis aplicáveis.</p>
+                        <h3>Dados Coletados e Finalidade</h3>
+                        <p>Para o funcionamento da plataforma, coletamos e processamos os seguintes dados:</p>
+                        <ul>
+                            <li><strong>Dados de Conta:</strong> Nome, e-mail e identificadores de login social (Google).<br><em>Finalidade:</em> Autenticação, criação de perfil único e controle de acesso.</li>
+                            <li><strong>Dados de Gestão:</strong> Informações sobre vendas, estoque, fluxo de caixa e cadastro de clientes.<br><em>Finalidade:</em> Prestação do serviço de gestão, geração de relatórios de desempenho e sincronização em nuvem.</li>
+                            <li><strong>Comunicação e Notificações:</strong> Preferências de recebimento de resumos e alertas.<br><em>Finalidade:</em> Envio de Resumos Semanais de desempenho e Alertas de Estoque Crítico via e-mail e notificações Push.</li>
+                            <li><strong>Interações com Inteligência Artificial (Gê IA):</strong> Conteúdo de mensagens de texto, áudios e arquivos anexados (como PDFs de relatórios e prints de tela) enviados ao nosso chat inteligente.<br><em>Finalidade:</em> Prestação de suporte técnico automatizado, leitura de logs/erros, orientações de gestão e encaminhamento documentado de chamados para a equipe técnica humana.</li>
+                        </ul>
                     </li>
                     <li>
-                        <h3>Compartilhamento</h3>
-                        <p><strong>Hoje:</strong> Não compartilhamos dados com terceiros.</p>
-                        <p><strong>Futuro:</strong> Se houver compartilhamento, será limitado a provedores de serviço essenciais (ex.: backup, analytics), conforme esta política e leis vigentes.</p>
+                        <h3>Inteligência Artificial e Suporte Técnico (Gê IA)</h3>
+                        <p>Nossa plataforma é potencializada pelo <strong>Gê IA</strong>, nosso consultor inteligente alimentado por modelos generativos de última geração.</p>
+                        <ul>
+                            <li><strong>Privacidade no Processamento:</strong> Ao interagir com o Gê e enviar arquivos (como PDFs ou imagens), esses dados são processados por visão computacional estritamente para formular a resposta à sua solicitação ou para anexar as evidências a um ticket de suporte interno.</li>
+                            <li><strong>Ponte com Equipe Humana:</strong> Caso a IA não consiga resolver uma dúvida ou identifique um bug, ela criará um ticket de suporte (ex: <em>TK-XXXX</em>) automaticamente. O histórico daquela conversa e os anexos enviados serão compartilhados de forma segura com nossa equipe humana de engenharia e atendimento para resolução do problema.</li>
+                            <li><strong>Treinamento de Modelos:</strong> Os dados da sua empresa (vendas, clientes e arquivos enviados ao chat) <strong>não</strong> são utilizados para treinar modelos de inteligência artificial públicos.</li>
+                        </ul>
                     </li>
                     <li>
-                        <h3>Direitos do usuário (LGPD/GDPR)</h3>
-                        <p>Quando houver dados pessoais, você poderá solicitar: acesso, correção, exclusão, portabilidade, revogação de consentimento e informação sobre uso/compartilhamento, conforme a lei.</p>
+                        <h3>Segurança e Manipulação Técnica</h3>
+                        <p>Implementamos medidas rigorosas para garantir a integridade dos seus dados:</p>
+                        <ul>
+                            <li><strong>Isolamento Multi-tenant e Contextual:</strong> Utilizamos identificadores exclusivos (como X-Tenant-ID) em todas as requisições. O banco de dados e a "memória de curto prazo" da Inteligência Artificial garantem que os dados e o contexto da sua empresa sejam física e logicamente invisíveis e inacessíveis para outros usuários.</li>
+                            <li><strong>Criptografia:</strong> Toda comunicação ocorre via protocolo SSL/TLS (HTTPS). Senhas são processadas utilizando algoritmos de hashing seguro (BCrypt), impedindo o armazenamento em texto plano.</li>
+                            <li><strong>Segurança da Sessão:</strong> O acesso é controlado via JSON Web Tokens (JWT) com assinatura RSA, garantindo que apenas dispositivos autorizados acessem as informações.</li>
+                        </ul>
                     </li>
                     <li>
-                        <h3>Retenção</h3>
-                        <p>Dados (quando existirem) serão mantidos apenas pelo tempo necessário para as finalidades informadas ou exigências legais.</p>
+                        <h3>Compartilhamento com Terceiros</h3>
+                        <p>Não vendemos nem comercializamos seus dados. O compartilhamento ocorre apenas com provedores de infraestrutura essenciais para o funcionamento do app:</p>
+                        <ul>
+                            <li><strong>Google LLC (Google Cloud &amp; Google AI / Gemini API):</strong> Provedor do motor de inteligência artificial e processamento em nuvem. O processamento de prompts, textos e imagens do chat ocorre sob os rígidos termos de privacidade corporativa da Google Cloud (API Data Privacy).</li>
+                            <li><strong>DigitalOcean / Nginx:</strong> Para hospedagem dos servidores e manutenção da plataforma online.</li>
+                            <li><strong>Brevo &amp; Firebase:</strong> Para o envio técnico de e-mails transacionais (resumos, alertas e atualizações de tickets de suporte) e notificações push no dispositivo móvel.</li>
+                            <li><strong>Google Play Store:</strong> Para a gestão e cobrança de assinaturas Premium.</li>
+                        </ul>
                     </li>
                     <li>
-                        <h3>Planos gratuito e assinatura</h3>
-                        <p>Oferecemos versão gratuita e versão com assinatura. Funcionalidades, preços e condições podem mudar sem aviso prévio, conforme termos de uso aplicáveis.</p>
-                    </li>
-                    <li>
-                        <h3>Crianças</h3>
-                        <p>O app não é direcionado a menores de 13 anos (ou idade equivalente local). Se identificarmos dados de menores, tomaremos medidas para removê-los.</p>
+                        <h3>Direitos do Usuário e Exclusão de Dados</h3>
+                        <p>Você possui controle total sobre seus dados. Além das opções de edição diretamente no aplicativo, você pode solicitar a remoção completa, definitiva e irreversível de todos os seus registros (incluindo histórico de conversas com a IA) de nossos servidores.</p>
+                        <p><strong>Como solicitar a exclusão total:</strong></p>
+                        <p>Envie um e-mail para <a href="mailto:deleteme@negociodebolso.com">deleteme@negociodebolso.com</a> contendo:</p>
+                        <ol>
+                            <li>Nome completo;</li>
+                            <li>E-mail de cadastro;</li>
+                            <li>Caso tenha utilizado o Google Login, informe o e-mail da conta Google associada;</li>
+                            <li>Um breve texto autorizando a remoção total e irreversível dos dados.</li>
+                        </ol>
+                        <p><em>O prazo de resposta e conclusão da remoção é de até 48h úteis. Após a conclusão deste processo, os dados não poderão ser recuperados sob nenhuma hipótese.</em></p>
                     </li>
                     <li>
                         <h3>Contato</h3>
-                        <p>Dúvidas ou solicitações sobre privacidade: envie um e-mail para <a href="mailto:contato@negociodebolso.com">contato@negociodebolso.com</a>.</p>
+                        <p>Para dúvidas jurídicas, técnicas ou sobre como a Inteligência Artificial processa seus dados, fale conosco:</p>
+                        <p>📧 <a href="mailto:contato@negociodebolso.com">contato@negociodebolso.com</a></p>
                     </li>
                 </ol>
-                <p class="policy-notice">Aviso: Esta política poderá ser atualizada a qualquer momento. Recomendamos revisar periodicamente.</p>
+                <p class="policy-notice">Esta Política de Privacidade poderá ser atualizada para refletir melhorias em nossas práticas de segurança, compliance e tecnologia. Recomendamos revisão periódica.</p>
             </div>
         </section>
     </main>
