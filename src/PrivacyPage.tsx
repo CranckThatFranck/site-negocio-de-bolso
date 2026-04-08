@@ -37,55 +37,67 @@ export default function PrivacyPage() {
 
         <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-4 text-white">🛡️ Política de Privacidade — Negócio de Bolso</h1>
-          <p className="text-gray-400 mb-8">Versão 3.0 | Última atualização: 28 de Março de 2026</p>
+          <p className="text-gray-400 mb-8">Versão 4.0 | Última atualização: 08 de Abril de 2026</p>
           
           <p className="text-gray-300 mb-12 text-lg">
-            Bem-vindo ao Negócio de Bolso. A sua privacidade e a segurança dos dados do seu negócio são os pilares da nossa tecnologia. Esta política descreve como tratamos informações em nossa plataforma (App Android e Painel Web).
+            Bem-vindo ao Negócio de Bolso (um produto do ecossistema Gaia Works). A sua privacidade e a segurança dos dados do seu negócio são os pilares da nossa tecnologia. Esta política descreve como tratamos informações em nossa plataforma (App Android e Painel Web), incluindo nossas novas integrações avançadas de Inteligência Artificial.
           </p>
 
           <div className="space-y-10 text-gray-300">
             <section>
               <h4 className="text-2xl font-semibold mb-3 text-white">1. Natureza da Operação e Papéis de Dados</h4>
-              <p className="mb-4">O Negócio de Bolso atua como uma ferramenta de gestão. Nos termos da Lei Geral de Proteção de Dados (<strong>LGPD</strong>):</p>
+              <p className="mb-4">O Negócio de Bolso atua como uma ferramenta de gestão e inteligência aplicada. Nos termos da Lei Geral de Proteção de Dados (<strong>LGPD</strong>):</p>
               <ul className="list-disc pl-5 space-y-2">
                 <li><strong className="text-white">Você (Usuário/Lojista):</strong> É o Controlador dos dados de seus clientes, produtos e vendas.</li>
-                <li><strong className="text-white">Negócio de Bolso:</strong> Atua como Operador, fornecendo a infraestrutura tecnológica para o processamento dessas informações.</li>
+                <li><strong className="text-white">Negócio de Bolso:</strong> Atua como Operador, fornecendo a infraestrutura tecnológica e de processamento (incluindo IA) dessas informações.</li>
               </ul>
             </section>
 
             <section>
               <h4 className="text-2xl font-semibold mb-3 text-white">2. Dados Coletados e Finalidade</h4>
-              <p className="mb-4">Para o funcionamento da plataforma, coletamos os seguintes dados:</p>
+              <p className="mb-4">Para o funcionamento da plataforma, coletamos e processamos os seguintes dados:</p>
               <ul className="list-disc pl-5 space-y-4">
                 <li><strong className="text-white">Dados de Conta:</strong> Nome, e-mail e identificadores de login social (Google).<br /><span className="text-gray-400">Finalidade: Autenticação, criação de perfil único e controle de acesso.</span></li>
-                <li><strong className="text-white">Dados de Gestão:</strong> Informações sobre vendas, estoque, fluxo de caixa e cadastro de clientes.<br /><span className="text-gray-400">Finalidade: Prestação do serviço de gestão e geração de relatórios de desempenho.</span></li>
+                <li><strong className="text-white">Dados de Gestão:</strong> Informações sobre vendas, estoque, fluxo de caixa e cadastro de clientes.<br /><span className="text-gray-400">Finalidade: Prestação do serviço de gestão, geração de relatórios de desempenho e sincronização em nuvem.</span></li>
                 <li><strong className="text-white">Comunicação e Notificações:</strong> Preferências de recebimento de resumos e alertas.<br /><span className="text-gray-400">Finalidade: Envio de Resumos Semanais de desempenho e Alertas de Estoque Crítico via e-mail e notificações Push.</span></li>
+                <li><strong className="text-white">Interações com Inteligência Artificial (Gê IA):</strong> Conteúdo de mensagens de texto, áudios e arquivos anexados (como PDFs de relatórios e prints de tela) enviados ao nosso chat inteligente.<br /><span className="text-gray-400">Finalidade: Prestação de suporte técnico automatizado, leitura de logs/erros, orientações de gestão e encaminhamento documentado de chamados para a equipe técnica humana.</span></li>
               </ul>
             </section>
 
             <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">3. Segurança e Manipulação Técnica</h4>
+              <h4 className="text-2xl font-semibold mb-3 text-white">3. Inteligência Artificial e Suporte Técnico (Gê IA)</h4>
+              <p className="mb-4">Nossa plataforma é potencializada pelo <strong>Gê IA</strong>, nosso consultor inteligente alimentado por modelos generativos de última geração.</p>
+              <ul className="list-disc pl-5 space-y-4">
+                <li><strong className="text-white">Privacidade no Processamento:</strong> Ao interagir com o Gê e enviar arquivos (como PDFs ou imagens), esses dados são processados por visão computacional estritamente para formular a resposta à sua solicitação ou para anexar as evidências a um ticket de suporte interno.</li>
+                <li><strong className="text-white">Ponte com Equipe Humana:</strong> Caso a IA não consiga resolver uma dúvida ou identifique um bug, ela criará um ticket de suporte (ex: <em>TK-XXXX</em>) automaticamente. O histórico daquela conversa e os anexos enviados serão compartilhados de forma segura com nossa equipe humana de engenharia e atendimento para resolução do problema.</li>
+                <li><strong className="text-white">Treinamento de Modelos:</strong> Os dados da sua empresa (vendas, clientes e arquivos enviados ao chat) <strong>não</strong> são utilizados para treinar modelos de inteligência artificial públicos.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h4 className="text-2xl font-semibold mb-3 text-white">4. Segurança e Manipulação Técnica</h4>
               <p className="mb-4">Implementamos medidas rigorosas para garantir a integridade dos seus dados:</p>
               <ul className="list-disc pl-5 space-y-4">
-                <li><strong className="text-white">Isolamento Multi-tenant:</strong> Utilizamos o identificador exclusivo <strong>X-Tenant-ID</strong> em todas as requisições, garantindo que os dados da sua empresa sejam física e logicamente invisíveis para outros usuários no banco de dados.</li>
+                <li><strong className="text-white">Isolamento Multi-tenant e Contextual:</strong> Utilizamos identificadores exclusivos (como <code>X-Tenant-ID</code>) em todas as requisições. O banco de dados e a "memória de curto prazo" da Inteligência Artificial garantem que os dados e o contexto da sua empresa sejam física e logicamente invisíveis e inacessíveis para outros usuários.</li>
                 <li><strong className="text-white">Criptografia:</strong> Toda comunicação ocorre via protocolo SSL/TLS (HTTPS). Senhas são processadas utilizando algoritmos de hashing seguro (BCrypt), impedindo o armazenamento em texto plano.</li>
                 <li><strong className="text-white">Segurança da Sessão:</strong> O acesso é controlado via JSON Web Tokens (JWT) com assinatura RSA, garantindo que apenas dispositivos autorizados acessem as informações.</li>
               </ul>
             </section>
 
             <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">4. Compartilhamento com Terceiros</h4>
-              <p className="mb-4">Não vendemos nem comercializamos seus dados. O compartilhamento ocorre apenas com provedores essenciais:</p>
+              <h4 className="text-2xl font-semibold mb-3 text-white">5. Compartilhamento com Terceiros</h4>
+              <p className="mb-4">Não vendemos nem comercializamos seus dados. O compartilhamento ocorre apenas com provedores de infraestrutura essenciais para o funcionamento do app:</p>
               <ul className="list-disc pl-5 space-y-2">
-                <li><strong className="text-white">Hospedagem (DigitalOcean/Nginx):</strong> Para manutenção da plataforma online.</li>
-                <li><strong className="text-white">Comunicação (Brevo & Firebase):</strong> Para o envio técnico de e-mails transacionais (resumos e alertas) e notificações push no dispositivo móvel.</li>
-                <li><strong className="text-white">Pagamentos (Google Play Store):</strong> Para gestão de assinaturas Premium.</li>
+                <li><strong className="text-white">Google LLC (Google Cloud & Google AI / Gemini API):</strong> Provedor do motor de inteligência artificial e processamento em nuvem. O processamento de prompts, textos e imagens do chat ocorre sob os rígidos termos de privacidade corporativa da Google Cloud (API Data Privacy).</li>
+                <li><strong className="text-white">DigitalOcean / Nginx:</strong> Para hospedagem dos servidores e manutenção da plataforma online.</li>
+                <li><strong className="text-white">Brevo & Firebase:</strong> Para o envio técnico de e-mails transacionais (resumos, alertas e atualizações de tickets de suporte) e notificações push no dispositivo móvel.</li>
+                <li><strong className="text-white">Google Play Store:</strong> Para a gestão e cobrança de assinaturas Premium.</li>
               </ul>
             </section>
 
             <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">5. Direitos do Usuário e Exclusão de Dados</h4>
-              <p className="mb-4">Você possui controle total sobre seus dados. Além das opções de edição no app, você pode solicitar a remoção completa e definitiva de todos os seus registros em nossos servidores.</p>
+              <h4 className="text-2xl font-semibold mb-3 text-white">6. Direitos do Usuário e Exclusão de Dados</h4>
+              <p className="mb-4">Você possui controle total sobre seus dados. Além das opções de edição diretamente no aplicativo, você pode solicitar a remoção completa, definitiva e irreversível de todos os seus registros (incluindo histórico de conversas com a IA) de nossos servidores.</p>
               
               <p className="mb-2 font-semibold text-white">Como solicitar a exclusão total:</p>
               <p className="mb-4">Envie um e-mail para <a href="mailto:deleteme@negociodebolso.com" className="text-gaia-green hover:underline">deleteme@negociodebolso.com</a> contendo:</p>
@@ -95,12 +107,12 @@ export default function PrivacyPage() {
                 <li>Caso tenha utilizado o Google Login, informe o e-mail da conta Google associada;</li>
                 <li>Um breve texto autorizando a remoção total e irreversível dos dados.</li>
               </ul>
-              <p className="mb-4">O prazo de resposta e conclusão da remoção é de até 48h úteis. Após este processo, os dados não poderão ser recuperados.</p>
+              <p className="mb-4"><em className="text-gray-400">O prazo de resposta e conclusão da remoção é de até 48h úteis. Após a conclusão deste processo, os dados não poderão ser recuperados sob nenhuma hipótese.</em></p>
             </section>
 
             <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">6. Contato</h4>
-              <p className="mb-4">Para dúvidas jurídicas ou técnicas:</p>
+              <h4 className="text-2xl font-semibold mb-3 text-white">7. Contato</h4>
+              <p className="mb-4">Para dúvidas jurídicas, técnicas ou sobre como a Inteligência Artificial processa seus dados, fale conosco:</p>
               <p className="flex items-center gap-2">
                 <span className="text-xl">📧</span>
                 <a href="mailto:contato@negociodebolso.com" className="text-gaia-green hover:underline">contato@negociodebolso.com</a>
