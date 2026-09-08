@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import LandingPage from './LandingPage'
 import PrivacyPage from './PrivacyPage'
+import PrivacyOwnGeminiPage from './PrivacyOwnGeminiPage'
 import HelpPage from './HelpPage'
 
 /**
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/privacyOwnGemini" element={<PrivacyOwnGeminiPage />} />
         <Route path="/help" element={<HelpPage />} />
       </Routes>
     </Router>
