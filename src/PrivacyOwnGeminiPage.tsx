@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import logoMain from './img/negócio de bolso - logo.png';
 import gaiaWorksLogo from './img/gaiaworks.png';
 
 export default function PrivacyOwnGeminiPage() {
@@ -24,7 +23,7 @@ export default function PrivacyOwnGeminiPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <Link to="/" className="flex items-center gap-3">
-                <img src={logoMain} alt="Negócio de Bolso Logo" className="h-10 w-auto object-contain" />
+                <img src="/logo_horizontal_dark.svg" alt="Negócio de Bolso" className="h-10 w-auto object-contain" />
                 <span className="font-bold text-xl tracking-tight hidden sm:block">Negócio de Bolso 2.0</span>
               </Link>
             </div>
