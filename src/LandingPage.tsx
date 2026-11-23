@@ -1,423 +1,537 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Smartphone, MonitorDot, WifiOff, Receipt,
-  Users, BarChart3, Lock, ShieldCheck, Fingerprint, Database,
-  CheckCircle2, Instagram, Linkedin, Mail
+  Users, BarChart3, ShieldCheck, Sparkles,
+  CheckCircle2, Package, Wallet, CalendarClock,
+  ChevronDown, ArrowRight, Mail, CloudCog
 } from 'lucide-react';
 
-import logoMain from './img/negócio de bolso - logo.png';
-import capaImagem from './img/negócio de bolso - logo (Capa para Facebook).jpg';
 import gaiaWorksLogo from './img/gaiaworks.png';
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.45 } }
 };
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }
+const PILARES = [
+  {
+    icon: WifiOff,
+    title: 'Offline-First de verdade',
+    desc: 'Venda no balcão, na rua ou em eventos sem depender de sinal. Tudo sincroniza automaticamente quando a conexão voltar.'
+  },
+  {
+    icon: CloudCog,
+    title: 'Celular + Painel Web',
+    desc: 'Agilidade do Android na linha de frente conectada em tempo real ao Painel Web para gestão estratégica no computador.'
+  },
+  {
+    icon: Sparkles,
+    title: 'O Gê, seu copiloto de IA',
+    desc: 'Análise preditiva de caixa, alertas de estoque baixo e recomendações práticas em linguagem direta para decidir melhor.'
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Segurança corporativa',
+    desc: 'Arquitetura multi-tenant isolada, backup automático em nuvem e controle de permissões por usuário da equipe.'
   }
-};
+];
+
+const MODULOS = [
+  {
+    icon: Receipt,
+    title: 'PDV & Vendas Rápidas',
+    desc: 'Feche vendas em segundos com leitor de código de barras, Pix, cartão, dinheiro, cálculo de troco e comprovante digital.'
+  },
+  {
+    icon: Package,
+    title: 'Produtos & Estoque Inteligente',
+    desc: 'Controle entradas, ajustes, margem e receba alertas em âmbar antes que os itens campeões de venda acabem.'
+  },
+  {
+    icon: Users,
+    title: 'Clientes, Fidelidade & CRM',
+    desc: 'Histórico completo de compras, lembretes de relacionamento, aniversariantes e programa de pontos integrado.'
+  },
+  {
+    icon: Wallet,
+    title: 'Vendas a Prazo (Fiado)',
+    desc: 'Saiba exatamente quem deve, acompanhe vencimentos, registre pagamentos parciais e reduza a inadimplência.'
+  },
+  {
+    icon: BarChart3,
+    title: 'Financeiro & Fechamento de Caixa',
+    desc: 'Abertura e fechamento de caixa, fluxo financeiro diário, despesas, receitas e relatórios prontos para exportar.'
+  },
+  {
+    icon: CalendarClock,
+    title: 'Serviços, Pedidos & Agenda',
+    desc: 'Agende atendimentos, acompanhe pedidos por status e organize insumos de cada serviço no mesmo aplicativo.'
+  }
+];
+
+const FAQS = [
+  {
+    q: 'O Negócio de Bolso funciona sem internet?',
+    a: 'Sim. O aplicativo Android foi construído com arquitetura offline-first: você registra vendas, consulta produtos, cadastra clientes e controla o fiado normalmente sem internet. No plano Premium, tudo sincroniza na nuvem assim que o aparelho reconecta.'
+  },
+  {
+    q: 'O plano Grátis tem prazo de validade ou exige cartão?',
+    a: 'Não. O plano Free é gratuito para sempre (R$ 0), sem cartão de crédito, e permite gerenciar até 100 produtos e 100 clientes no aplicativo Android.'
+  },
+  {
+    q: 'Como funciona o acesso ao Painel Web?',
+    a: 'O Painel Web (app.negociodebolso.com) faz parte do plano Premium. Basta assinar pelo app Android e entrar com a mesma conta no navegador do computador ou tablet para gerenciar relatórios, equipe e fluxo de caixa em tela grande.'
+  },
+  {
+    q: 'O que o Gê (Copiloto de IA) faz pelo meu negócio?',
+    a: 'O Gê analisa suas vendas, estoque e fluxo financeiro para gerar projeções, sinalizar produtos parados ou em falta, alertar sobre inadimplência e responder dúvidas operacionais em português claro.'
+  },
+  {
+    q: 'Posso usar fora do Brasil? Como funciona o preço?',
+    a: 'Sim. O aplicativo está disponível na Google Play Store em múltiplos países. Os valores de referência no Brasil são R$ 20,90/mês ou R$ 199,90/ano, e para outros países lusófonos a Google Play realiza a conversão automática para a moeda local no momento da assinatura.'
+  }
+];
 
 export default function LandingPage() {
-  return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 font-sans selection:bg-gaia-green selection:text-white">
-      {/* Background radial fluid */}
-      <div
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle at top left, color-mix(in srgb, #2E7D32 16%, transparent), transparent 34%), radial-gradient(circle at bottom right, rgba(248, 209, 125, 0.12), transparent 28%)'
-        }}
-      />
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-      <div className="relative z-10">
-        {/* Sticky Header */}
-        <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-gray-950/70 border-b border-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img src={logoMain} alt="Negócio de Bolso Logo" className="h-10 w-auto object-contain" />
-              <span className="font-bold text-xl tracking-tight hidden sm:block">Negócio de Bolso 2.0</span>
-            </div>
-            <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-300">
-              <a href="#funcionalidades" className="hover:text-white transition-colors">Funcionalidades</a>
-              <a href="#ecossistema" className="hover:text-white transition-colors">Ecossistema</a>
-              <a href="#planos" className="hover:text-white transition-colors">Planos</a>
-              <a href="#contato" className="hover:text-white transition-colors">Contato</a>
-            </nav>
+  return (
+    <div
+      className="min-h-screen bg-[#09090B] text-[#F4F4F5] selection:bg-[#F4F4F5] selection:text-[#09090B]"
+      style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
+    >
+      {/* Navbar */}
+      <header className="sticky top-0 z-50 border-b border-[#2A2A32] bg-[#09090B]/90 backdrop-blur-md">
+        <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <a href="#" className="flex items-center gap-3">
+            <img
+              src="/logo_horizontal_dark.svg"
+              alt="Negócio de Bolso"
+              className="h-9 w-auto object-contain"
+            />
+          </a>
+
+          <nav className="hidden items-center gap-7 text-sm font-medium text-[#A1A1AA] md:flex">
+            <a href="#recursos" className="transition-colors hover:text-[#F4F4F5]">Recursos</a>
+            <a href="#ge-ia" className="transition-colors hover:text-[#F4F4F5]">O Gê (IA)</a>
+            <a href="#ecossistema" className="transition-colors hover:text-[#F4F4F5]">Painel Web</a>
+            <a href="#planos" className="transition-colors hover:text-[#F4F4F5]">Planos</a>
+            <a href="#duvidas" className="transition-colors hover:text-[#F4F4F5]">Dúvidas</a>
+          </nav>
+
+          <div className="flex items-center gap-3">
             <a
               href="https://app.negociodebolso.com/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gaia-green hover:bg-green-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg hover:shadow-gaia-green/20"
+              className="hidden rounded-xl border border-[#2A2A32] bg-[#141417] px-4 py-2.5 text-sm font-medium text-[#F4F4F5] transition-colors hover:border-[#3F3F46] hover:bg-[#1C1C21] sm:inline-flex"
             >
-              Acessar meu painel
+              Entrar no Painel Web
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#F4F4F5] px-4 py-2.5 text-sm font-semibold text-[#09090B] transition-opacity hover:opacity-90"
+            >
+              Baixar Grátis
             </a>
           </div>
-        </header>
+        </div>
+      </header>
 
-        <main>
-          {/* Hero Section */}
-          <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto flex flex-col items-center text-center mt-10">
-            <motion.div initial="hidden" animate="visible" variants={fadeIn}>
-              <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-white max-w-4xl mx-auto leading-tight">
-                O controle total do seu negócio, na <span className="text-gaia-green">palma da mão</span> e na <span className="text-yellow-400">tela do computador</span>.
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                Vender offline, gerenciar online. O ecossistema completo para microempreendedores.
+      <main>
+        {/* Hero Section */}
+        <section className="mx-auto max-w-6xl px-4 pb-20 pt-20 sm:px-6 lg:px-8 lg:pt-28">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            className="mx-auto max-w-4xl text-center"
+          >
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#2A2A32] bg-[#141417] px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-[#A1A1AA]">
+              <span className="h-2 w-2 rounded-full bg-[#10B981]" />
+              ANDROID + PAINEL WEB · OFFLINE-FIRST
+            </span>
+
+            <h1 className="mt-6 text-4xl font-bold tracking-tight text-[#F4F4F5] sm:text-5xl lg:text-6xl lg:leading-[1.08]">
+              Tecnologia executiva para o seu negócio crescer — no celular e na nuvem.
+            </h1>
+
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#A1A1AA] sm:text-lg">
+              PDV rápido, controle de estoque, clientes, fiado, caixa e <strong className="font-semibold text-[#F4F4F5]">o Gê</strong>, seu copiloto de inteligência artificial. Vender, controlar, crescer — sem planilhas e sem depender de internet.
+            </p>
+
+            <div className="mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#F4F4F5] px-7 text-sm font-semibold text-[#09090B] transition-opacity hover:opacity-90 sm:w-auto"
+              >
+                Baixar Grátis na Google Play
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="https://app.negociodebolso.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-[#2A2A32] bg-[#141417] px-7 text-sm font-semibold text-[#F4F4F5] transition-colors hover:border-[#3F3F46] hover:bg-[#1C1C21] sm:w-auto"
+              >
+                Entrar no Painel Web
+              </a>
+            </div>
+
+            <p className="mt-4 text-xs text-[#71717A]">
+              Comece grátis no Android sem cartão de crédito · Até 100 produtos e 100 clientes no plano Free.
+            </p>
+          </motion.div>
+
+          {/* Visual Preview Card */}
+          <div className="mx-auto mt-14 max-w-5xl overflow-hidden rounded-[20px] border border-[#2A2A32] bg-[#141417]">
+            <img
+              src="/opengraph_dark_1200x630.png"
+              alt="Negócio de Bolso — Vender, controlar, crescer."
+              className="h-auto w-full object-cover"
+            />
+          </div>
+        </section>
+
+        {/* Faixa de Pilares */}
+        <section className="border-y border-[#2A2A32] bg-[#141417]/50 py-16">
+          <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+            {PILARES.map((pilar) => {
+              const Icon = pilar.icon;
+              return (
+                <div
+                  key={pilar.title}
+                  className="rounded-2xl border border-[#2A2A32] bg-[#141417] p-6"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21]">
+                    <Icon className="h-5 w-5 text-[#F4F4F5]" />
+                  </div>
+                  <h2 className="mt-4 text-base font-semibold text-[#F4F4F5]">{pilar.title}</h2>
+                  <p className="mt-2 text-sm leading-relaxed text-[#A1A1AA]">{pilar.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Seção Ecossistema (Mobile + Painel Web) */}
+        <section id="ecossistema" className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A1A1AA]">
+              Ecossistema integrado
+            </span>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
+              Velocidade no celular. Visão executiva no computador.
+            </h2>
+            <p className="mt-4 text-base text-[#A1A1AA]">
+              Um único sistema conectado que acompanha o ritmo real do seu balcão e entrega controle total quando você senta para analisar resultados.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="rounded-[20px] border border-[#2A2A32] bg-[#141417] p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21]">
+                <Smartphone className="h-6 w-6 text-[#F4F4F5]" />
+              </div>
+              <h3 className="mt-5 text-xl font-semibold text-[#F4F4F5]">App Android (Linha de Frente)</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
+                Projetado para operar com uma só mão no dia a dia: venda em segundos mesmo sem sinal, escaneie códigos de barras, envie comprovantes e consulte clientes na hora.
               </p>
+              <ul className="mt-6 space-y-2.5 text-sm text-[#E4E4E7]">
+                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> PDV rápido offline-first com cálculo de troco</li>
+                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Tema Dark Obsidiana e Light Executive</li>
+                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Alertas automáticos de estoque baixo e fiado</li>
+              </ul>
+            </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <div className="rounded-[20px] border border-[#2A2A32] bg-[#141417] p-8">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21]">
+                <MonitorDot className="h-6 w-6 text-[#F4F4F5]" />
+              </div>
+              <h3 className="mt-5 text-xl font-semibold text-[#F4F4F5]">Painel Web (Gestão Estratégica)</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
+                Acesse <span className="font-medium text-[#F4F4F5]">app.negociodebolso.com</span> no navegador para enxergar projeções de caixa, desempenho da equipe, churn, inadimplência e relatórios completos.
+              </p>
+              <ul className="mt-6 space-y-2.5 text-sm text-[#E4E4E7]">
+                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Sincronização contínua em nuvem com o celular</li>
+                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Gestão de equipe com permissões por perfil</li>
+                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Fluxo de caixa, projeções e insights do Gê</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* 6 Cards de Módulos */}
+        <section id="recursos" className="border-t border-[#2A2A32] py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A1A1AA]">
+                Módulos completos
+              </span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
+                Tudo o que a sua operação precisa em um só padrão.
+              </h2>
+            </div>
+
+            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {MODULOS.map((mod) => {
+                const Icon = mod.icon;
+                return (
+                  <div
+                    key={mod.title}
+                    className="rounded-2xl border border-[#2A2A32] bg-[#141417] p-6 transition-colors hover:border-[#3F3F46]"
+                  >
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21]">
+                      <Icon className="h-5 w-5 text-[#F4F4F5]" />
+                    </div>
+                    <h3 className="mt-4 text-base font-semibold text-[#F4F4F5]">{mod.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-[#A1A1AA]">{mod.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Seção O Gê — Copiloto de IA */}
+        <section id="ge-ia" className="border-t border-[#2A2A32] bg-[#141417]/40 py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="rounded-[20px] border border-[#2A2A32] bg-[#141417] p-8 sm:p-12">
+              <div className="grid items-center gap-10 lg:grid-cols-12">
+                <div className="lg:col-span-7">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[#10B981]/30 bg-[#10B981]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#10B981]">
+                    <Sparkles className="h-3.5 w-3.5" />
+                    O Gê · Copiloto de IA
+                  </span>
+                  <h2 className="mt-5 text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
+                    Conheça o Gê, seu copiloto executivo de inteligência artificial.
+                  </h2>
+                  <p className="mt-4 text-base leading-relaxed text-[#A1A1AA]">
+                    Integrado ao seu app Android e ao Painel Web, <strong className="font-semibold text-[#F4F4F5]">o Gê</strong> lê os números reais da sua empresa em tempo real para antecipar riscos, apontar oportunidades de venda e responder suas perguntas operacionais sem termos complicados.
+                  </p>
+                </div>
+
+                <div className="space-y-3 lg:col-span-5">
+                  <div className="rounded-xl border border-[#2A2A32] bg-[#1C1C21] p-4">
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#10B981]">
+                      Projeção do Gê
+                    </div>
+                    <p className="mt-1.5 text-sm text-[#E4E4E7]">
+                      Seu caixa projeta crescimento de 14% esta semana com destaque para vendas via Pix.
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-[#2A2A32] bg-[#1C1C21] p-4">
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#F59E0B]">
+                      Alerta do Gê
+                    </div>
+                    <p className="mt-1.5 text-sm text-[#E4E4E7]">
+                      3 itens de alto giro estão abaixo do estoque mínimo. Reposição recomendada hoje.
+                    </p>
+                  </div>
+                  <div className="rounded-xl border border-[#2A2A32] bg-[#1C1C21] p-4">
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#A1A1AA]">
+                      Insight do Gê
+                    </div>
+                    <p className="mt-1.5 text-sm text-[#E4E4E7]">
+                      Envie lembrete amigável para 2 contas a prazo que vencem em 48 horas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Seção Planos */}
+        <section id="planos" className="border-t border-[#2A2A32] py-24">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center">
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A1A1AA]">
+                Planos transparentes
+              </span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
+                Comece grátis e evolua quando o negócio pedir escala.
+              </h2>
+            </div>
+
+            <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
+              {/* Plano Free */}
+              <div className="flex flex-col justify-between rounded-[20px] border border-[#2A2A32] bg-[#141417] p-8">
+                <div>
+                  <span className="inline-flex rounded-full border border-[#2A2A32] bg-[#1C1C21] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#A1A1AA]">
+                    Free
+                  </span>
+                  <div className="mt-5 flex items-baseline gap-1 tabular-nums">
+                    <span className="text-4xl font-bold text-[#F4F4F5]">R$ 0</span>
+                    <span className="text-sm text-[#A1A1AA]">/ para sempre</span>
+                  </div>
+                  <p className="mt-3 text-sm text-[#A1A1AA]">
+                    Ideal para começar hoje mesmo no Android sem custo e sem cartão de crédito.
+                  </p>
+                  <ul className="mt-6 space-y-3 text-sm text-[#E4E4E7]">
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Até 100 produtos cadastrados</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Até 100 clientes cadastrados</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> PDV offline-first, vendas e estoque</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Controle de fiado e comprovantes</li>
+                  </ul>
+                </div>
+
                 <a
                   href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-gray-100 text-gray-900 font-bold rounded-full hover:bg-white transition-transform hover:scale-105 shadow-xl"
+                  className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21] text-sm font-semibold text-[#F4F4F5] transition-colors hover:border-[#3F3F46]"
                 >
-                  Download na Google Play Store
+                  Baixar Grátis no Android
+                </a>
+              </div>
+
+              {/* Plano Premium */}
+              <div className="flex flex-col justify-between rounded-[20px] border border-[#F4F4F5]/40 bg-[#141417] p-8">
+                <div>
+                  <span className="inline-flex rounded-full bg-[#F4F4F5] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#09090B]">
+                    Premium
+                  </span>
+                  <div className="mt-5 flex items-baseline gap-1.5 tabular-nums">
+                    <span className="text-4xl font-bold text-[#F4F4F5]">R$ 20,90</span>
+                    <span className="text-sm text-[#A1A1AA]">/ mês</span>
+                  </div>
+                  <p className="mt-1.5 text-sm font-medium text-[#10B981] tabular-nums">
+                    ou R$ 199,90/ano no plano anual (economize mais de 20%)
+                  </p>
+                  <p className="mt-3 text-sm text-[#A1A1AA]">
+                    Ecossistema completo para quem quer escala, equipe conectada e inteligência artificial.
+                  </p>
+                  <ul className="mt-6 space-y-3 text-sm text-[#E4E4E7]">
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Produtos, clientes e vendas ilimitados</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Acesso completo ao Painel Web na nuvem</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> O Gê (Copiloto de IA) + projeções de caixa</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Fechamento de caixa, equipe e relatórios avançados</li>
+                  </ul>
+                </div>
+
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-xl bg-[#F4F4F5] text-sm font-semibold text-[#09090B] transition-opacity hover:opacity-90"
+                >
+                  Assinar pelo App Android
+                </a>
+              </div>
+            </div>
+
+            <p className="mx-auto mt-6 max-w-2xl text-center text-xs leading-relaxed text-[#71717A]">
+              * Valores exibidos em Reais (BRL) para o Brasil. Para empreendedores em Portugal, Angola, Moçambique e demais países lusófonos, a Google Play realiza a conversão automática para a moeda local no checkout.
+            </p>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="duvidas" className="border-t border-[#2A2A32] py-24">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A1A1AA]">
+                Dúvidas frequentes
+              </span>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#F4F4F5]">
+                Respostas diretas antes de começar.
+              </h2>
+            </div>
+
+            <div className="mt-10 space-y-3">
+              {FAQS.map((item, idx) => {
+                const isOpen = openFaq === idx;
+                return (
+                  <div
+                    key={item.q}
+                    className="rounded-2xl border border-[#2A2A32] bg-[#141417]"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                    >
+                      <span className="text-sm font-semibold text-[#F4F4F5] sm:text-base">{item.q}</span>
+                      <ChevronDown
+                        className={`h-4 w-4 shrink-0 text-[#A1A1AA] transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className="border-t border-[#2A2A32] px-6 py-4 text-sm leading-relaxed text-[#A1A1AA]">
+                        {item.a}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Final */}
+        <section className="border-t border-[#2A2A32] py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+            <div className="rounded-[20px] border border-[#2A2A32] bg-[#141417] px-6 py-14 sm:px-12">
+              <h2 className="text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
+                Pronto para profissionalizar sua gestão hoje?
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-base text-[#A1A1AA]">
+                Baixe grátis no Android agora e leve o padrão executivo do Negócio de Bolso para cada venda.
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#F4F4F5] px-7 text-sm font-semibold text-[#09090B] transition-opacity hover:opacity-90 sm:w-auto"
+                >
+                  Baixar Grátis
+                  <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
                   href="https://app.negociodebolso.com/login"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-8 py-3.5 bg-gray-900 border border-gray-700 text-white font-bold rounded-full hover:bg-gray-800 transition-colors"
+                  className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21] px-7 text-sm font-semibold text-[#F4F4F5] transition-colors hover:border-[#3F3F46] sm:w-auto"
                 >
-                  Acessar Painel Web (Premium)
+                  Entrar no Painel Web
                 </a>
               </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="relative w-full max-w-5xl mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-gaia-green/10 border border-gray-800"
-            >
-              <div className="aspect-video bg-gray-900 flex items-center justify-center relative">
-                <img
-                  src={capaImagem}
-                  alt="Interface do Sistema"
-                  className="w-full h-full object-cover opacity-80"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent opacity-80" />
-              </div>
-            </motion.div>
-          </section>
-
-          {/* O Ecossistema GAIA 2.0 */}
-          <section id="ecossistema" className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">O Ecossistema GAIA 2.0</h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
-                Uma arquitetura construída para funcionar em qualquer situação. Seu celular para a linha de frente, o computador para a gestão estratégica.
-              </p>
-            </div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerContainer}
-              className="grid md:grid-cols-2 gap-8"
-            >
-              {/* Android Card */}
-              <motion.div variants={fadeIn} className="backdrop-blur bg-gray-900/50 border border-gray-800 rounded-3xl p-8 hover:bg-gray-800/50 transition-colors">
-                <div className="w-14 h-14 bg-indigo-500/10 text-indigo-400 rounded-2xl flex items-center justify-center mb-6 border border-indigo-500/20">
-                  <Smartphone className="w-7 h-7" />
-                </div>
-                <h3 className="text-2xl font-bold mb-6 text-white">App Android</h3>
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <WifiOff className="w-5 h-5 text-indigo-400 mt-0.5 shrink-0" />
-                    <span><strong className="text-white">100% Offline-First:</strong> Venda mesmo sem internet. Sincroniza automaticamente quando houver conexão (Premium) ou funciona totalmente local integrado com backup manual (Free).</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Smartphone className="w-5 h-5 text-indigo-400 mt-0.5 shrink-0" />
-                    <span><strong className="text-white">PDV Ágil:</strong> Gestão rápida de produtos e serviços na palma da mão.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Receipt className="w-5 h-5 text-indigo-400 mt-0.5 shrink-0" />
-                    <span><strong className="text-white">Recibos de venda:</strong> Geração instantânea de recibos com o nome do seu negócio e rodapé customizado pronto para o compartilhamento.</span>
-                  </li>
-                </ul>
-              </motion.div>
-
-              {/* Web App Card */}
-              <motion.div variants={fadeIn} className="backdrop-blur bg-gray-900/50 border border-gray-800 rounded-3xl p-8 hover:bg-gray-800/50 transition-colors">
-                <div className="w-14 h-14 bg-gaia-green/10 text-gaia-green rounded-2xl flex items-center justify-center mb-6 border border-gaia-green/20">
-                  <MonitorDot className="w-7 h-7" />
-                </div>
-                <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                  Painel Web
-                  <span className="text-xs font-semibold bg-yellow-500/20 text-yellow-500 px-3 py-1 rounded-full border border-yellow-500/30">Premium</span>
-                </h3>
-                <ul className="space-y-4 text-gray-300">
-                  <li className="flex items-start gap-3">
-                    <MonitorDot className="w-5 h-5 text-gaia-green mt-0.5 shrink-0" />
-                    <span><strong className="text-white">Sincronia em Tempo Real:</strong> Acompanhe as vendas da sua equipe na mesma hora.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Users className="w-5 h-5 text-gaia-green mt-0.5 shrink-0" />
-                    <span><strong className="text-white">Programa de Fidelidade:</strong> Sistema de Tiers e Pontos para engajar e reter clientes.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Users className="w-5 h-5 text-gaia-green mt-0.5 shrink-0" />
-                    <span><strong className="text-white">CRM Avançado:</strong> Mensagens de aniversariantes via WhatsApp, controle de churn e clientes ausentes.</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <BarChart3 className="w-5 h-5 text-gaia-green mt-0.5 shrink-0" />
-                    <span><strong className="text-white">BI e Relatórios:</strong> Radar de Fiados, Mapa de Calor de vendas e exportação em PDF/CSV.</span>
-                  </li>
-                </ul>
-              </motion.div>
-            </motion.div>
-          </section>
-
-          {/* Segurança */}
-          <section id="funcionalidades" className="py-24 border-t border-gray-800/50 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col md:flex-row items-center gap-12">
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="md:w-1/2"
-                >
-                  <div className="w-16 h-16 bg-gray-800 rounded-2xl flex items-center justify-center mb-6 shadow-inner">
-                    <ShieldCheck className="w-8 h-8 text-yellow-400" />
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-6">Controle e Segurança Absoluta</h2>
-                  <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                    A infraestrutura do Negócio de Bolso 2.0 foi desenhada para proteger o seu principal ativo: seus dados. Com múltiplas camadas de proteção, garantimos que apenas você e sua equipe autorizada acessem os números do seu negócio.
-                  </p>
-
-                  <div className="space-y-6">
-                    <div className="flex gap-4 items-center">
-                      <div className="w-12 h-12 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center shrink-0">
-                        <Database className="w-5 h-5 text-gray-300" />
-                      </div>
-                      <div>
-                        <h4 className="text-white font-semibold">Backup Inteligente</h4>
-                        <p className="text-sm text-gray-500">
-                          Sincronização em nuvem automática para assinantes <strong className="text-yellow-500">Premium</strong>. Clientes <strong className="text-gray-300">Free</strong> contam com uma robusta ferramenta de backup manual para quando desejarem.
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex gap-4 items-center">
-                      <div className="w-12 h-12 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center shrink-0">
-                        <Fingerprint className="w-5 h-5 text-gray-300" />
-                      </div>
-                      <div>
-                        <h4 className="text-white font-semibold">Bloqueio Biométrico</h4>
-                        <p className="text-sm text-gray-500">Proteção com digital nativa direto no aplicativo mobile.</p>
-                      </div>
-                    </div>
-                    <div className="flex gap-4 items-center">
-                      <div className="w-12 h-12 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center shrink-0">
-                        <Lock className="w-5 h-5 text-gray-300" />
-                      </div>
-                      <div>
-                        <h4 className="text-white font-semibold">Dados 100% Privados</h4>
-                        <p className="text-sm text-gray-500">Suas vendas são suas. Criptografia end-to-end e total privacidade.</p>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <div className="md:w-1/2 relative flex justify-center mt-10 md:mt-0">
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle,rgba(250,204,21,0.05)_0%,transparent_60%)] -z-10" />
-                  <div className="backdrop-blur bg-gray-900/60 border border-gray-800 p-8 rounded-3xl w-full max-w-sm transform rotate-2 hover:rotate-0 transition-all duration-500">
-                    <div className="flex items-center justify-center mb-6">
-                      <Lock className="w-12 h-12 text-yellow-400 opacity-80" />
-                    </div>
-                    <div className="space-y-4">
-                      <div className="h-2 w-3/4 bg-gray-800 rounded mx-auto" />
-                      <div className="h-2 w-1/2 bg-gray-800 rounded mx-auto" />
-                      <div className="h-10 border border-yellow-500/30 rounded-lg mt-6 bg-yellow-500/10 flex items-center justify-center text-yellow-500 text-sm font-medium">Ambiente Seguro</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Pricing Section */}
-          <section id="planos" className="py-24 border-t border-gray-800/50 bg-gray-950/50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Escolha a melhor solução para o seu momento</h2>
-                <p className="text-gray-400 max-w-2xl mx-auto">
-                  A versão Free estará sempre com você. Quando estiver pronto para expandir a equipe e acessar recursos avançados, assine o Premium.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                {/* Free Plan */}
-                <div className="backdrop-blur bg-gray-900 border border-gray-800 p-8 rounded-3xl">
-                  <h3 className="text-2xl font-bold text-white mb-2">Plano Free</h3>
-                  <div className="text-4xl font-extrabold text-white mb-6">R$ 0<span className="text-lg font-normal text-gray-500">/mês forever</span></div>
-                  <p className="text-gray-400 mb-8 border-b border-gray-800 pb-8">Perfeito para quem está começando o próprio negócio offline.</p>
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
-                      <span>Até 100 Clientes e Produtos</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
-                      <span>Controle de Estoque e Vendas Básico</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
-                      <span>Programa de Fidelidade Local</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
-                      <span>Gerador de Recibos compartilháveis</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gray-500 shrink-0" />
-                      <span>100% Offline com Backup Manual</span>
-                    </li>
-                  </ul>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center py-3 px-6 rounded-full border border-gray-700 text-white hover:bg-gray-800 transition-colors font-medium"
-                  >
-                    Baixar Agora
-                  </a>
-                </div>
-
-                {/* Premium Plan */}
-                <div className="backdrop-blur bg-gray-900 border-2 border-gaia-green p-8 rounded-3xl relative transform md:-translate-y-4 shadow-2xl shadow-gaia-green/20">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gaia-green text-white px-4 py-1 rounded-full text-sm font-bold tracking-wide">MAIS POPULAR</div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Plano Premium</h3>
-                  <div className="flex items-end gap-2 mb-6">
-                    <div className="text-4xl font-extrabold text-white">R$ 20,90</div>
-                    <div className="text-gray-500 mb-1">/mês ou R$ 199,90 /ano</div>
-                  </div>
-                  <p className="text-gray-400 mb-8 border-b border-gray-800 pb-8">Acesso irrestrito a todo o poder do ecossistema GAIA.</p>
-                  <ul className="space-y-4 mb-8">
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
-                      <span><strong className="text-white">Clientes e Produtos Ilimitados</strong></span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
-                      <span><strong className="text-white">Múltiplos Usuários e Gestão de Equipe</strong></span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
-                      <span><strong className="text-white">Acesso Total ao Painel Web em Tempo Real</strong></span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
-                      <span>Gestão de Serviços e Agendamentos</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
-                      <span>Módulo de Caixa e Fiado Integrado</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
-                      <span>Sincronização e Backup Automático em Nuvem</span>
-                    </li>
-                    <li className="flex items-center gap-3 text-gray-300">
-                      <CheckCircle2 className="w-5 h-5 text-gaia-green shrink-0" />
-                      <span>Suporte Prioritário</span>
-                    </li>
-                  </ul>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center py-3 px-6 rounded-full bg-gaia-green text-white hover:bg-green-700 transition-colors font-bold shadow-lg shadow-gaia-green/30"
-                  >
-                    Assinar Premium
-                  </a>
-                  <p className="text-xs text-gray-400 text-center mt-4">
-                    * A assinatura Premium é realizada exclusivamente pelo App via Google Play Store.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* CTA Final */}
-          <section className="py-20 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gaia-green opacity-5" />
-            <div className="max-w-3xl mx-auto px-4 relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para evoluir a gestão?</h2>
-              <p className="text-lg text-gray-400 mb-10">Junte-se a milhares de microempreendedores que já controlam o fluxo de caixa no Negócio de Bolso.</p>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.negociodebolso.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-gaia-green hover:bg-green-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-[0_0_40px_rgba(46,125,50,0.4)]"
-              >
-                Download na Google Play Store
-              </a>
-            </div>
-          </section>
-        </main>
-
-        {/* Footer */}
-        <footer id="contato" className="border-t border-gray-900 bg-gray-950 pt-16 pb-8 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto flex flex-col items-center">
-            <img
-              src={gaiaWorksLogo}
-              alt="Gaia Works"
-              className="h-12 w-auto mb-6 opacity-80 grayscale hover:grayscale-0 transition-all"
-            />
-            <p className="text-gray-500 text-sm mb-6 text-center max-w-lg">
-              Negócio de Bolso - Um projeto <span className="text-white font-medium">Gaia Works</span>.<br />
-              Entre em contato conosco para suporte, dúvidas e parcerias.
-            </p>
-
-            <div className="flex items-center gap-4 mb-8">
-              <a
-                href="mailto:contato@negociodebolso.com"
-                className="flex items-center gap-2 text-gaia-green hover:text-green-400 transition-colors bg-gray-900 px-4 py-2 rounded-full border border-gray-800"
-              >
-                <Mail className="w-4 h-4" />
-                <span className="font-medium text-sm">contato@negociodebolso.com</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/company/neg%C3%B3cio-de-bolso/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-600 transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/appnegociodebolso/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-600 transition-all"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-10 text-gray-500 text-sm">
-              <Link to="/privacy" className="hover:text-white transition-colors">Política de Privacidade</Link>
-              <Link to="/help" className="hover:text-white transition-colors">Central de Ajuda</Link>
-            </div>
-
-            <div className="text-gray-600 text-xs text-center border-t border-gray-900 pt-8 w-full max-w-3xl">
-              &copy; {new Date().getFullYear()} Gaia Works. Todos os direitos reservados.
             </div>
           </div>
-        </footer>
-      </div>
+        </section>
+      </main>
+
+      {/* Rodapé */}
+      <footer className="border-t border-[#2A2A32] bg-[#09090B] py-12">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6 lg:px-8">
+          <div className="flex items-center gap-3">
+            <img src={gaiaWorksLogo} alt="Gaia Works" className="h-7 w-auto opacity-85" />
+            <span className="text-xs text-[#71717A]">
+              © {new Date().getFullYear()} Negócio de Bolso · Por Gaia Works. Vender, controlar, crescer.
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-6 text-xs text-[#A1A1AA]">
+            <Link to="/ajuda" className="transition-colors hover:text-[#F4F4F5]">Central de Ajuda</Link>
+            <Link to="/privacidade" className="transition-colors hover:text-[#F4F4F5]">Privacidade</Link>
+            <a
+              href="mailto:contato@negociodebolso.com"
+              className="inline-flex items-center gap-1.5 transition-colors hover:text-[#F4F4F5]"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              contato@negociodebolso.com
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
