@@ -5,7 +5,7 @@ import {
   Smartphone, MonitorDot, WifiOff, Receipt,
   Users, BarChart3, ShieldCheck, Sparkles,
   CheckCircle2, Package, Wallet, CalendarClock,
-  ChevronDown, ArrowRight, Mail, CloudCog
+  ChevronDown, ArrowRight, Mail, Instagram, Linkedin
 } from 'lucide-react';
 
 import gaiaWorksLogo from './img/gaiaworks.png';
@@ -18,79 +18,79 @@ const fadeIn = {
 const PILARES = [
   {
     icon: WifiOff,
-    title: 'Offline-First de verdade',
-    desc: 'Venda no balcão, na rua ou em eventos sem depender de sinal. Tudo sincroniza automaticamente quando a conexão voltar.'
-  },
-  {
-    icon: CloudCog,
-    title: 'Celular + Painel Web',
-    desc: 'Agilidade do Android na linha de frente conectada em tempo real ao Painel Web para gestão estratégica no computador.'
-  },
-  {
-    icon: Sparkles,
-    title: 'O Gê, seu copiloto de IA',
-    desc: 'Análise preditiva de caixa, alertas de estoque baixo e recomendações práticas em linguagem direta para decidir melhor.'
+    title: 'Funciona sem internet',
+    desc: 'Venda e registre movimentações normalmente. Tudo sincroniza quando voltar a conexão.'
   },
   {
     icon: ShieldCheck,
-    title: 'Segurança corporativa',
-    desc: 'Arquitetura multi-tenant isolada, backup automático em nuvem e controle de permissões por usuário da equipe.'
+    title: 'Pensado para ser simples',
+    desc: 'Interface limpa, leitura clara e zero complexidade de sistemas tradicionais.'
+  },
+  {
+    icon: Sparkles,
+    title: 'O Gê trabalha com você',
+    desc: 'Copiloto de inteligência artificial integrado para projeções, análises e suporte imediato.'
+  },
+  {
+    icon: MonitorDot,
+    title: 'Do balcão ao escritório',
+    desc: 'Opere rápido no celular e acompanhe relatórios executivos pelo computador.'
   }
 ];
 
 const MODULOS = [
   {
     icon: Receipt,
-    title: 'PDV & Vendas Rápidas',
-    desc: 'Feche vendas em segundos com leitor de código de barras, Pix, cartão, dinheiro, cálculo de troco e comprovante digital.'
+    title: 'Frente de Caixa (PDV) & Pedidos',
+    desc: 'Vendas rápidas, cálculo de troco, recibos, estornos e múltiplos meios de pagamento (dinheiro, cartão, transferência instantânea e a prazo).'
   },
   {
     icon: Package,
     title: 'Produtos & Estoque Inteligente',
-    desc: 'Controle entradas, ajustes, margem e receba alertas em âmbar antes que os itens campeões de venda acabem.'
+    desc: 'Preço de custo, margem de lucro, entradas, inventário e alertas automáticos de reposição.'
   },
   {
     icon: Users,
-    title: 'Clientes, Fidelidade & CRM',
-    desc: 'Histórico completo de compras, lembretes de relacionamento, aniversariantes e programa de pontos integrado.'
+    title: 'Clientes, Crédito & Fidelidade',
+    desc: 'Histórico completo, controle transparente de vendas a prazo, aniversariantes e programa de fidelidade.'
   },
   {
     icon: Wallet,
-    title: 'Vendas a Prazo (Fiado)',
-    desc: 'Saiba exatamente quem deve, acompanhe vencimentos, registre pagamentos parciais e reduza a inadimplência.'
-  },
-  {
-    icon: BarChart3,
-    title: 'Financeiro & Fechamento de Caixa',
-    desc: 'Abertura e fechamento de caixa, fluxo financeiro diário, despesas, receitas e relatórios prontos para exportar.'
+    title: 'Caixa & Financeiro Completo',
+    desc: 'Abertura, fechamento, conferência de caixa, fluxo financeiro e projeções futuras.'
   },
   {
     icon: CalendarClock,
-    title: 'Serviços, Pedidos & Agenda',
-    desc: 'Agende atendimentos, acompanhe pedidos por status e organize insumos de cada serviço no mesmo aplicativo.'
+    title: 'Serviços & Agendamentos',
+    desc: 'Controle de horários vinculado a clientes, serviços prestados e materiais utilizados.'
+  },
+  {
+    icon: BarChart3,
+    title: 'Relatórios & Equipe (RBAC)',
+    desc: 'Desempenho por vendedor, exportação em CSV/PDF e controle de acesso por perfil de usuário.'
   }
 ];
 
 const FAQS = [
   {
-    q: 'O Negócio de Bolso funciona sem internet?',
-    a: 'Sim. O aplicativo Android foi construído com arquitetura offline-first: você registra vendas, consulta produtos, cadastra clientes e controla o fiado normalmente sem internet. No plano Premium, tudo sincroniza na nuvem assim que o aparelho reconecta.'
+    q: 'O aplicativo funciona mesmo sem internet?',
+    a: 'Sim. O Negócio de Bolso é offline-first: você registra vendas, consulta estoque e atende clientes sem depender de conexão. No Plano Premium, os dados sincronizam automaticamente com a nuvem assim que houver internet.'
   },
   {
-    q: 'O plano Grátis tem prazo de validade ou exige cartão?',
-    a: 'Não. O plano Free é gratuito para sempre (R$ 0), sem cartão de crédito, e permite gerenciar até 100 produtos e 100 clientes no aplicativo Android.'
+    q: 'O Negócio de Bolso funciona fora do Brasil?',
+    a: 'Sim! O aplicativo e o Painel Web são usados por empreendedores em diversos países lusófonos, com linguagem simples e suporte a pagamentos universais (dinheiro, cartão, transferência e vendas a prazo).'
   },
   {
-    q: 'Como funciona o acesso ao Painel Web?',
-    a: 'O Painel Web (app.negociodebolso.com) faz parte do plano Premium. Basta assinar pelo app Android e entrar com a mesma conta no navegador do computador ou tablet para gerenciar relatórios, equipe e fluxo de caixa em tela grande.'
+    q: 'O que acontece quando chego ao limite do Plano Gratuito?',
+    a: 'Você nunca perde o que já cadastrou. Quando precisar de mais de 100 produtos ou 100 clientes, ou quiser acessar pelo computador e usar a nuvem, basta ativar o Plano Premium.'
   },
   {
-    q: 'O que o Gê (Copiloto de IA) faz pelo meu negócio?',
-    a: 'O Gê analisa suas vendas, estoque e fluxo financeiro para gerar projeções, sinalizar produtos parados ou em falta, alertar sobre inadimplência e responder dúvidas operacionais em português claro.'
+    q: 'Existe versão para iPhone (iOS)?',
+    a: 'Atualmente o aplicativo móvel é exclusivo para Android, e você pode acessar toda a gestão pelo navegador no computador ou celular através do Painel Web (app.negociodebolso.com) no Plano Premium.'
   },
   {
-    q: 'Posso usar fora do Brasil? Como funciona o preço?',
-    a: 'Sim. O aplicativo está disponível na Google Play Store em múltiplos países. Os valores de referência no Brasil são R$ 20,90/mês ou R$ 199,90/ano, e para outros países lusófonos a Google Play realiza a conversão automática para a moeda local no momento da assinatura.'
+    q: 'Como o Gê (IA) ajuda no dia a dia?',
+    a: 'O Gê é o seu copiloto de gestão: ele responde dúvidas sobre o uso do sistema, gera insights automáticos a partir das suas vendas e projeta o seu fluxo de caixa para ajudar nas decisões do negócio.'
   }
 ];
 
@@ -102,7 +102,7 @@ export default function LandingPage() {
       className="min-h-screen bg-[#09090B] text-[#F4F4F5] selection:bg-[#F4F4F5] selection:text-[#09090B]"
       style={{ fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif" }}
     >
-      {/* Navbar */}
+      {/* 2.1 Navbar */}
       <header className="sticky top-0 z-50 border-b border-[#2A2A32] bg-[#09090B]/90 backdrop-blur-md">
         <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#" className="flex items-center gap-3">
@@ -123,7 +123,7 @@ export default function LandingPage() {
 
           <div className="flex items-center gap-3">
             <a
-              href="https://app.negociodebolso.com/login"
+              href="https://app.negociodebolso.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden rounded-xl border border-[#2A2A32] bg-[#141417] px-4 py-2.5 text-sm font-medium text-[#F4F4F5] transition-colors hover:border-[#3F3F46] hover:bg-[#1C1C21] sm:inline-flex"
@@ -143,7 +143,7 @@ export default function LandingPage() {
       </header>
 
       <main>
-        {/* Hero Section */}
+        {/* 2.2 Hero Section */}
         <section className="mx-auto max-w-6xl px-4 pb-20 pt-20 sm:px-6 lg:px-8 lg:pt-28">
           <motion.div
             initial="hidden"
@@ -161,7 +161,7 @@ export default function LandingPage() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-[#A1A1AA] sm:text-lg">
-              PDV rápido, controle de estoque, clientes, fiado, caixa e <strong className="font-semibold text-[#F4F4F5]">o Gê</strong>, seu copiloto de inteligência artificial. Vender, controlar, crescer — sem planilhas e sem depender de internet.
+              Frente de caixa, estoque, clientes, vendas a prazo e um copiloto de IA que acompanha seus números. Comece grátis no Android e escale com o Painel Web.
             </p>
 
             <div className="mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
@@ -171,21 +171,21 @@ export default function LandingPage() {
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#F4F4F5] px-7 text-sm font-semibold text-[#09090B] transition-opacity hover:opacity-90 sm:w-auto"
               >
-                Baixar Grátis na Google Play
+                Baixar na Google Play
                 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://app.negociodebolso.com/login"
+                href="https://app.negociodebolso.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-[#2A2A32] bg-[#141417] px-7 text-sm font-semibold text-[#F4F4F5] transition-colors hover:border-[#3F3F46] hover:bg-[#1C1C21] sm:w-auto"
               >
-                Entrar no Painel Web
+                Acessar Painel Web
               </a>
             </div>
 
             <p className="mt-4 text-xs text-[#71717A]">
-              Comece grátis no Android sem cartão de crédito · Até 100 produtos e 100 clientes no plano Free.
+              Gratuito para começar · Funciona 100% offline · Sem cartão de crédito
             </p>
           </motion.div>
 
@@ -199,7 +199,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Faixa de Pilares */}
+        {/* 2.3 Faixa de Pilares */}
         <section className="border-y border-[#2A2A32] bg-[#141417]/50 py-16">
           <div className="mx-auto grid max-w-6xl gap-4 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
             {PILARES.map((pilar) => {
@@ -220,17 +220,17 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Seção Ecossistema (Mobile + Painel Web) */}
+        {/* 2.4 Seção Ecossistema: Mobile + Painel Web */}
         <section id="ecossistema" className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:px-8">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A1A1AA]">
               Ecossistema integrado
             </span>
             <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
-              Velocidade no celular. Visão executiva no computador.
+              Um ecossistema completo. No bolso ou na mesa.
             </h2>
             <p className="mt-4 text-base text-[#A1A1AA]">
-              Um único sistema conectado que acompanha o ritmo real do seu balcão e entrega controle total quando você senta para analisar resultados.
+              O Negócio de Bolso une a agilidade do aplicativo Android offline-first com a visão estratégica do Painel Web em tempo real.
             </p>
           </div>
 
@@ -239,40 +239,30 @@ export default function LandingPage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21]">
                 <Smartphone className="h-6 w-6 text-[#F4F4F5]" />
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-[#F4F4F5]">App Android (Linha de Frente)</h3>
+              <h3 className="mt-5 text-xl font-semibold text-[#F4F4F5]">No ponto de venda ou em campo</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
-                Projetado para operar com uma só mão no dia a dia: venda em segundos mesmo sem sinal, escaneie códigos de barras, envie comprovantes e consulte clientes na hora.
+                Registre vendas em segundos, controle estoque, gerencie agendamentos e compartilhe recibos — mesmo sem sinal.
               </p>
-              <ul className="mt-6 space-y-2.5 text-sm text-[#E4E4E7]">
-                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> PDV rápido offline-first com cálculo de troco</li>
-                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Tema Dark Obsidiana e Light Executive</li>
-                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Alertas automáticos de estoque baixo e fiado</li>
-              </ul>
             </div>
 
             <div className="rounded-[20px] border border-[#2A2A32] bg-[#141417] p-8">
               <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21]">
                 <MonitorDot className="h-6 w-6 text-[#F4F4F5]" />
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-[#F4F4F5]">Painel Web (Gestão Estratégica)</h3>
+              <h3 className="mt-5 text-xl font-semibold text-[#F4F4F5]">No computador, com visão executiva</h3>
               <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
-                Acesse <span className="font-medium text-[#F4F4F5]">app.negociodebolso.com</span> no navegador para enxergar projeções de caixa, desempenho da equipe, churn, inadimplência e relatórios completos.
+                Acompanhe indicadores de inadimplência, risco de perda de clientes (churn), mapa de calor de vendas e gerencie permissões da sua equipe.
               </p>
-              <ul className="mt-6 space-y-2.5 text-sm text-[#E4E4E7]">
-                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Sincronização contínua em nuvem com o celular</li>
-                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Gestão de equipe com permissões por perfil</li>
-                <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Fluxo de caixa, projeções e insights do Gê</li>
-              </ul>
             </div>
           </div>
         </section>
 
-        {/* 6 Cards de Módulos */}
+        {/* 2.5 Módulos Principais (6 Cards) */}
         <section id="recursos" className="border-t border-[#2A2A32] py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#A1A1AA]">
-                Módulos completos
+                Módulos principais
               </span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
                 Tudo o que a sua operação precisa em um só padrão.
@@ -299,7 +289,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Seção O Gê — Copiloto de IA */}
+        {/* 2.6 Seção O Gê — Copiloto de IA */}
         <section id="ge-ia" className="border-t border-[#2A2A32] bg-[#141417]/40 py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="rounded-[20px] border border-[#2A2A32] bg-[#141417] p-8 sm:p-12">
@@ -307,39 +297,39 @@ export default function LandingPage() {
                 <div className="lg:col-span-7">
                   <span className="inline-flex items-center gap-2 rounded-full border border-[#10B981]/30 bg-[#10B981]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#10B981]">
                     <Sparkles className="h-3.5 w-3.5" />
-                    O Gê · Copiloto de IA
+                    INTELIGÊNCIA ARTIFICIAL INTEGRADA
                   </span>
                   <h2 className="mt-5 text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
-                    Conheça o Gê, seu copiloto executivo de inteligência artificial.
+                    Conheça o Gê: seu copiloto de gestão.
                   </h2>
                   <p className="mt-4 text-base leading-relaxed text-[#A1A1AA]">
-                    Integrado ao seu app Android e ao Painel Web, <strong className="font-semibold text-[#F4F4F5]">o Gê</strong> lê os números reais da sua empresa em tempo real para antecipar riscos, apontar oportunidades de venda e responder suas perguntas operacionais sem termos complicados.
+                    Ele analisa suas vendas, identifica padrões e projeta o seu fluxo de caixa antes que os problemas apareçam. Tire dúvidas de operação no chat ou receba recomendações práticas direto no painel — sem precisar entender de finanças avançadas.
                   </p>
                 </div>
 
                 <div className="space-y-3 lg:col-span-5">
                   <div className="rounded-xl border border-[#2A2A32] bg-[#1C1C21] p-4">
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#10B981]">
-                      Projeção do Gê
+                    <div className="text-xs font-semibold uppercase tracking-wider text-[#10B981]">
+                      Projeção de Fluxo de Caixa
                     </div>
                     <p className="mt-1.5 text-sm text-[#E4E4E7]">
-                      Seu caixa projeta crescimento de 14% esta semana com destaque para vendas via Pix.
+                      Saiba como estará o seu caixa nos próximos dias com base no histórico real.
                     </p>
                   </div>
                   <div className="rounded-xl border border-[#2A2A32] bg-[#1C1C21] p-4">
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#F59E0B]">
-                      Alerta do Gê
+                    <div className="text-xs font-semibold uppercase tracking-wider text-[#F59E0B]">
+                      Cartões de Insight
                     </div>
                     <p className="mt-1.5 text-sm text-[#E4E4E7]">
-                      3 itens de alto giro estão abaixo do estoque mínimo. Reposição recomendada hoje.
+                      Alertas objetivos sobre produtos parados, quedas de venda e oportunidades.
                     </p>
                   </div>
                   <div className="rounded-xl border border-[#2A2A32] bg-[#1C1C21] p-4">
-                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#A1A1AA]">
-                      Insight do Gê
+                    <div className="text-xs font-semibold uppercase tracking-wider text-[#A1A1AA]">
+                      Assistência Instantânea
                     </div>
                     <p className="mt-1.5 text-sm text-[#E4E4E7]">
-                      Envie lembrete amigável para 2 contas a prazo que vencem em 48 horas.
+                      Pergunte ao Gê direto no app ou no Painel Web e resolva dúvidas em segundos.
                     </p>
                   </div>
                 </div>
@@ -348,7 +338,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Seção Planos */}
+        {/* 2.7 Planos (Free vs. Premium) */}
         <section id="planos" className="border-t border-[#2A2A32] py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
@@ -356,29 +346,32 @@ export default function LandingPage() {
                 Planos transparentes
               </span>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
-                Comece grátis e evolua quando o negócio pedir escala.
+                Comece grátis com recursos reais. Evolua quando o negócio pedir.
               </h2>
+              <p className="mt-4 text-base text-[#A1A1AA]">
+                Sem pegadinhas: nosso plano gratuito resolve a rotina diária. O Premium libera escala, nuvem, equipe e inteligência avançada.
+              </p>
             </div>
 
             <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-2">
-              {/* Plano Free */}
+              {/* Plano Gratuito */}
               <div className="flex flex-col justify-between rounded-[20px] border border-[#2A2A32] bg-[#141417] p-8">
                 <div>
                   <span className="inline-flex rounded-full border border-[#2A2A32] bg-[#1C1C21] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#A1A1AA]">
-                    Free
+                    Plano Gratuito
                   </span>
                   <div className="mt-5 flex items-baseline gap-1 tabular-nums">
                     <span className="text-4xl font-bold text-[#F4F4F5]">R$ 0</span>
                     <span className="text-sm text-[#A1A1AA]">/ para sempre</span>
                   </div>
                   <p className="mt-3 text-sm text-[#A1A1AA]">
-                    Ideal para começar hoje mesmo no Android sem custo e sem cartão de crédito.
+                    Ideal para quem está começando ou trabalha sozinho.
                   </p>
                   <ul className="mt-6 space-y-3 text-sm text-[#E4E4E7]">
-                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Até 100 produtos cadastrados</li>
-                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Até 100 clientes cadastrados</li>
-                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> PDV offline-first, vendas e estoque</li>
-                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Controle de fiado e comprovantes</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Até 100 produtos e 100 clientes cadastrados</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Uso 100% offline no app Android</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Frente de Caixa (PDV), estoque e financeiro essencial</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Backup manual local</li>
                   </ul>
                 </div>
 
@@ -388,7 +381,7 @@ export default function LandingPage() {
                   rel="noopener noreferrer"
                   className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21] text-sm font-semibold text-[#F4F4F5] transition-colors hover:border-[#3F3F46]"
                 >
-                  Baixar Grátis no Android
+                  Começar Grátis
                 </a>
               </div>
 
@@ -396,23 +389,25 @@ export default function LandingPage() {
               <div className="flex flex-col justify-between rounded-[20px] border border-[#F4F4F5]/40 bg-[#141417] p-8">
                 <div>
                   <span className="inline-flex rounded-full bg-[#F4F4F5] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#09090B]">
-                    Premium
+                    Plano Premium
                   </span>
                   <div className="mt-5 flex items-baseline gap-1.5 tabular-nums">
                     <span className="text-4xl font-bold text-[#F4F4F5]">R$ 20,90</span>
                     <span className="text-sm text-[#A1A1AA]">/ mês</span>
                   </div>
                   <p className="mt-1.5 text-sm font-medium text-[#10B981] tabular-nums">
-                    ou R$ 199,90/ano no plano anual (economize mais de 20%)
+                    ou R$ 199,90/ano (economize 20% no anual)
                   </p>
                   <p className="mt-3 text-sm text-[#A1A1AA]">
-                    Ecossistema completo para quem quer escala, equipe conectada e inteligência artificial.
+                    Ideal para negócios em crescimento e equipes.
                   </p>
                   <ul className="mt-6 space-y-3 text-sm text-[#E4E4E7]">
                     <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Produtos, clientes e vendas ilimitados</li>
-                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Acesso completo ao Painel Web na nuvem</li>
-                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> O Gê (Copiloto de IA) + projeções de caixa</li>
-                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Fechamento de caixa, equipe e relatórios avançados</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Sincronização e backup automático na nuvem</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Acesso completo ao Painel Web (app.negociodebolso.com)</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Multiusuário com controle de permissões (RBAC)</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Agendamentos avançados e relatórios executivos (Churn, Inadimplência, Heatmap)</li>
+                    <li className="flex items-center gap-2.5"><CheckCircle2 className="h-4 w-4 text-[#10B981]" /> Acesso completo ao Gê, seu copiloto de IA e projeção de fluxo de caixa</li>
                   </ul>
                 </div>
 
@@ -422,18 +417,18 @@ export default function LandingPage() {
                   rel="noopener noreferrer"
                   className="mt-8 inline-flex h-12 w-full items-center justify-center rounded-xl bg-[#F4F4F5] text-sm font-semibold text-[#09090B] transition-opacity hover:opacity-90"
                 >
-                  Assinar pelo App Android
+                  Assinar Premium
                 </a>
               </div>
             </div>
 
             <p className="mx-auto mt-6 max-w-2xl text-center text-xs leading-relaxed text-[#71717A]">
-              * Valores exibidos em Reais (BRL) para o Brasil. Para empreendedores em Portugal, Angola, Moçambique e demais países lusófonos, a Google Play realiza a conversão automática para a moeda local no checkout.
+              *Valores de referência em Real (BRL). Para usuários fora do Brasil, a Google Play Store exibe e converte automaticamente para a moeda local do seu país.
             </p>
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* 2.8 FAQ */}
         <section id="duvidas" className="border-t border-[#2A2A32] py-24">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
             <div className="text-center">
@@ -475,15 +470,15 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* CTA Final */}
+        {/* 2.9 CTA Final */}
         <section className="border-t border-[#2A2A32] py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <div className="rounded-[20px] border border-[#2A2A32] bg-[#141417] px-6 py-14 sm:px-12">
               <h2 className="text-3xl font-bold tracking-tight text-[#F4F4F5] sm:text-4xl">
-                Pronto para profissionalizar sua gestão hoje?
+                Seu negócio merece uma gestão à altura do seu trabalho.
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-base text-[#A1A1AA]">
-                Baixe grátis no Android agora e leve o padrão executivo do Negócio de Bolso para cada venda.
+                Baixe o Negócio de Bolso gratuitamente e assuma o controle hoje.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
                 <a
@@ -492,16 +487,16 @@ export default function LandingPage() {
                   rel="noopener noreferrer"
                   className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#F4F4F5] px-7 text-sm font-semibold text-[#09090B] transition-opacity hover:opacity-90 sm:w-auto"
                 >
-                  Baixar Grátis
+                  Baixar na Google Play
                   <ArrowRight className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://app.negociodebolso.com/login"
+                  href="https://app.negociodebolso.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex h-12 w-full items-center justify-center rounded-xl border border-[#2A2A32] bg-[#1C1C21] px-7 text-sm font-semibold text-[#F4F4F5] transition-colors hover:border-[#3F3F46] sm:w-auto"
                 >
-                  Entrar no Painel Web
+                  Acessar Painel Web
                 </a>
               </div>
             </div>
@@ -515,20 +510,25 @@ export default function LandingPage() {
           <div className="flex items-center gap-3">
             <img src={gaiaWorksLogo} alt="Gaia Works" className="h-7 w-auto opacity-85" />
             <span className="text-xs text-[#71717A]">
-              © {new Date().getFullYear()} Negócio de Bolso · Por Gaia Works. Vender, controlar, crescer.
+              Negócio de Bolso · Por Gaia Works
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-6 text-xs text-[#A1A1AA]">
-            <Link to="/ajuda" className="transition-colors hover:text-[#F4F4F5]">Central de Ajuda</Link>
-            <Link to="/privacidade" className="transition-colors hover:text-[#F4F4F5]">Privacidade</Link>
-            <a
-              href="mailto:contato@negociodebolso.com"
-              className="inline-flex items-center gap-1.5 transition-colors hover:text-[#F4F4F5]"
-            >
+          <div className="flex flex-wrap items-center justify-center gap-5 text-xs text-[#A1A1AA]">
+            <a href="mailto:contato@negociodebolso.com" className="inline-flex items-center gap-1.5 transition-colors hover:text-[#F4F4F5]">
               <Mail className="h-3.5 w-3.5" />
               contato@negociodebolso.com
             </a>
+            <a href="https://instagram.com/appnegociodebolso" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-[#F4F4F5]">
+              <Instagram className="h-3.5 w-3.5" />
+              @appnegociodebolso
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 transition-colors hover:text-[#F4F4F5]">
+              <Linkedin className="h-3.5 w-3.5" />
+              LinkedIn
+            </a>
+            <Link to="/privacidade" className="transition-colors hover:text-[#F4F4F5]">Política de Privacidade</Link>
+            <Link to="/ajuda" className="transition-colors hover:text-[#F4F4F5]">Termos de Uso</Link>
           </div>
         </div>
       </footer>
