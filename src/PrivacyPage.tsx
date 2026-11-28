@@ -1,141 +1,125 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
-import gaiaWorksLogo from './img/gaiaworks.png';
+import { ArrowLeft, ShieldCheck } from 'lucide-react';
 
 export default function PrivacyPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100 font-sans selection:bg-gaia-green selection:text-white">
-      {/* Background radial fluid */}
-      <div 
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle at top left, color-mix(in srgb, #2E7D32 16%, transparent), transparent 34%), radial-gradient(circle at bottom right, rgba(248, 209, 125, 0.12), transparent 28%)'
-        }}
-      />
+    <div className="min-h-screen bg-[#09090B] text-[#F4F4F5] font-sans">
+      <header className="border-b border-white/10 bg-[#09090B]/90 backdrop-blur-md">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-3 text-white font-semibold">
+            <img src="/ic_wallet_icon_dark_512.svg" alt="Negócio de Bolso" className="h-8 w-8" />
+            <span>Negócio de Bolso</span>
+          </Link>
+          <Link to="/" className="inline-flex items-center gap-2 text-sm text-[#A1A1AA] hover:text-white transition">
+            <ArrowLeft className="h-4 w-4" />
+            Voltar ao início
+          </Link>
+        </div>
+      </header>
 
-      <div className="relative z-10">
-        <header className="fixed top-0 w-full z-50 backdrop-blur-md bg-gray-950/70 border-b border-gray-800">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Link to="/" className="flex items-center gap-3">
-                <img src="/logo_horizontal_dark.svg" alt="Negócio de Bolso" className="h-10 w-auto object-contain" />
-                <span className="font-bold text-xl tracking-tight hidden sm:block">Negócio de Bolso 2.0</span>
-              </Link>
-            </div>
-            <Link to="/" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm font-medium">
-              <ArrowLeft className="w-4 h-4" />
-              Voltar ao Início
-            </Link>
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16 space-y-8">
+        <div className="space-y-3 border-b border-white/10 pb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#10B981]/10 border border-[#10B981]/30 text-[#10B981] text-xs font-semibold">
+            <ShieldCheck className="h-3.5 w-3.5" />
+            LGPD · Marco Civil · Uso Profissional (18+)
           </div>
-        </header>
-
-        <main className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-4 text-white">🛡️ Política de Privacidade — Negócio de Bolso</h1>
-          <p className="text-gray-400 mb-8">Versão 4.0 | Última atualização: 08 de Abril de 2026</p>
-          
-          <p className="text-gray-300 mb-12 text-lg">
-            Bem-vindo ao Negócio de Bolso (um produto do ecossistema Gaia Works). A sua privacidade e a segurança dos dados do seu negócio são os pilares da nossa tecnologia. Esta política descreve como tratamos informações em nossa plataforma (App Android e Painel Web), incluindo nossas novas integrações avançadas de Inteligência Artificial.
+          <h1 className="text-3xl sm:text-4xl font-bold text-white">Política de Privacidade — Negócio de Bolso</h1>
+          <p className="text-sm text-[#A1A1AA]">
+            Última atualização: 28 de novembro de 2026
           </p>
-
-          <div className="space-y-10 text-gray-300">
-            <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">1. Natureza da Operação e Papéis de Dados</h4>
-              <p className="mb-4">O Negócio de Bolso atua como uma ferramenta de gestão e inteligência aplicada. Nos termos da Lei Geral de Proteção de Dados (<strong>LGPD</strong>):</p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li><strong className="text-white">Você (Usuário/Lojista):</strong> É o Controlador dos dados de seus clientes, produtos e vendas.</li>
-                <li><strong className="text-white">Negócio de Bolso:</strong> Atua como Operador, fornecendo a infraestrutura tecnológica e de processamento (incluindo IA) dessas informações.</li>
-              </ul>
-            </section>
-
-            <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">2. Dados Coletados e Finalidade</h4>
-              <p className="mb-4">Para o funcionamento da plataforma, coletamos e processamos os seguintes dados:</p>
-              <ul className="list-disc pl-5 space-y-4">
-                <li><strong className="text-white">Dados de Conta:</strong> Nome, e-mail e identificadores de login social (Google).<br /><span className="text-gray-400">Finalidade: Autenticação, criação de perfil único e controle de acesso.</span></li>
-                <li><strong className="text-white">Dados de Gestão:</strong> Informações sobre vendas, estoque, fluxo de caixa e cadastro de clientes.<br /><span className="text-gray-400">Finalidade: Prestação do serviço de gestão, geração de relatórios de desempenho e sincronização em nuvem.</span></li>
-                <li><strong className="text-white">Comunicação e Notificações:</strong> Preferências de recebimento de resumos e alertas.<br /><span className="text-gray-400">Finalidade: Envio de Resumos Semanais de desempenho e Alertas de Estoque Crítico via e-mail e notificações Push.</span></li>
-                <li><strong className="text-white">Interações com Inteligência Artificial (Gê IA):</strong> Conteúdo de mensagens de texto, áudios e arquivos anexados (como PDFs de relatórios e prints de tela) enviados ao nosso chat inteligente.<br /><span className="text-gray-400">Finalidade: Prestação de suporte técnico automatizado, leitura de logs/erros, orientações de gestão e encaminhamento documentado de chamados para a equipe técnica humana.</span></li>
-              </ul>
-            </section>
-
-            <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">3. Inteligência Artificial e Suporte Técnico (Gê IA)</h4>
-              <p className="mb-4">Nossa plataforma é potencializada pelo <strong>Gê IA</strong>, nosso consultor inteligente alimentado por modelos generativos de última geração.</p>
-              <ul className="list-disc pl-5 space-y-4">
-                <li><strong className="text-white">Privacidade no Processamento:</strong> Ao interagir com o Gê e enviar arquivos (como PDFs ou imagens), esses dados são processados por visão computacional estritamente para formular a resposta à sua solicitação ou para anexar as evidências a um ticket de suporte interno.</li>
-                <li><strong className="text-white">Ponte com Equipe Humana:</strong> Caso a IA não consiga resolver uma dúvida ou identifique um bug, ela criará um ticket de suporte (ex: <em>TK-XXXX</em>) automaticamente. O histórico daquela conversa e os anexos enviados serão compartilhados de forma segura com nossa equipe humana de engenharia e atendimento para resolução do problema.</li>
-                <li><strong className="text-white">Treinamento de Modelos:</strong> Os dados da sua empresa (vendas, clientes e arquivos enviados ao chat) <strong>não</strong> são utilizados para treinar modelos de inteligência artificial públicos.</li>
-              </ul>
-            </section>
-
-            <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">4. Segurança e Manipulação Técnica</h4>
-              <p className="mb-4">Implementamos medidas rigorosas para garantir a integridade dos seus dados:</p>
-              <ul className="list-disc pl-5 space-y-4">
-                <li><strong className="text-white">Isolamento Multi-tenant e Contextual:</strong> Utilizamos identificadores exclusivos (como <code>X-Tenant-ID</code>) em todas as requisições. O banco de dados e a "memória de curto prazo" da Inteligência Artificial garantem que os dados e o contexto da sua empresa sejam física e logicamente invisíveis e inacessíveis para outros usuários.</li>
-                <li><strong className="text-white">Criptografia:</strong> Toda comunicação ocorre via protocolo SSL/TLS (HTTPS). Senhas são processadas utilizando algoritmos de hashing seguro (BCrypt), impedindo o armazenamento em texto plano.</li>
-                <li><strong className="text-white">Segurança da Sessão:</strong> O acesso é controlado via JSON Web Tokens (JWT) com assinatura RSA, garantindo que apenas dispositivos autorizados acessem as informações.</li>
-              </ul>
-            </section>
-
-            <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">5. Compartilhamento com Terceiros</h4>
-              <p className="mb-4">Não vendemos nem comercializamos seus dados. O compartilhamento ocorre apenas com provedores de infraestrutura essenciais para o funcionamento do app:</p>
-              <ul className="list-disc pl-5 space-y-2">
-                <li><strong className="text-white">Google LLC (Google Cloud & Google AI / Gemini API):</strong> Provedor do motor de inteligência artificial e processamento em nuvem. O processamento de prompts, textos e imagens do chat ocorre sob os rígidos termos de privacidade corporativa da Google Cloud (API Data Privacy).</li>
-                <li><strong className="text-white">DigitalOcean / Nginx:</strong> Para hospedagem dos servidores e manutenção da plataforma online.</li>
-                <li><strong className="text-white">Brevo & Firebase:</strong> Para o envio técnico de e-mails transacionais (resumos, alertas e atualizações de tickets de suporte) e notificações push no dispositivo móvel.</li>
-                <li><strong className="text-white">Google Play Store:</strong> Para a gestão e cobrança de assinaturas Premium.</li>
-              </ul>
-            </section>
-
-            <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">6. Direitos do Usuário e Exclusão de Dados</h4>
-              <p className="mb-4">Você possui controle total sobre seus dados. Além das opções de edição diretamente no aplicativo, você pode solicitar a remoção completa, definitiva e irreversível de todos os seus registros (incluindo histórico de conversas com a IA) de nossos servidores.</p>
-              
-              <p className="mb-2 font-semibold text-white">Como solicitar a exclusão total:</p>
-              <p className="mb-4">Envie um e-mail para <a href="mailto:deleteme@negociodebolso.com" className="text-gaia-green hover:underline">deleteme@negociodebolso.com</a> contendo:</p>
-              <ul className="list-disc pl-5 space-y-2 mb-4">
-                <li>Nome completo;</li>
-                <li>E-mail de cadastro;</li>
-                <li>Caso tenha utilizado o Google Login, informe o e-mail da conta Google associada;</li>
-                <li>Um breve texto autorizando a remoção total e irreversível dos dados.</li>
-              </ul>
-              <p className="mb-4"><em className="text-gray-400">O prazo de resposta e conclusão da remoção é de até 48h úteis. Após a conclusão deste processo, os dados não poderão ser recuperados sob nenhuma hipótese.</em></p>
-            </section>
-
-            <section>
-              <h4 className="text-2xl font-semibold mb-3 text-white">7. Contato</h4>
-              <p className="mb-4">Para dúvidas jurídicas, técnicas ou sobre como a Inteligência Artificial processa seus dados, fale conosco:</p>
-              <p className="flex items-center gap-2">
-                <span className="text-xl">📧</span>
-                <a href="mailto:contato@negociodebolso.com" className="text-gaia-green hover:underline">contato@negociodebolso.com</a>
-              </p>
-            </section>
-          </div>
-        </main>
-
-        <footer className="border-t border-gray-900 bg-gray-950 pt-16 pb-8 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto flex flex-col items-center">
-            <img 
-              src={gaiaWorksLogo} 
-              alt="Gaia Works" 
-              className="h-12 w-auto mb-6 opacity-80 grayscale hover:grayscale-0 transition-all"
-            />
-            <p className="text-gray-500 text-sm mb-6 text-center">
-              Negócio de Bolso - Um projeto <span className="text-white font-medium">Gaia Works</span>.
+          <div className="text-sm text-[#D4D4D8] space-y-1 pt-2">
+            <p>
+              <strong>Controlador:</strong> 50.643.283 JOAO FRANCISCO DE OLIVEIRA NETO (<strong>Gaia Works</strong>) — CNPJ 50.643.283/0001-68
             </p>
-            <div className="text-gray-600 text-xs">
-              &copy; {new Date().getFullYear()} GAIA Works. Todos os direitos reservados.
-            </div>
+            <p>
+              <strong>Endereço:</strong> Rua Arcanjo Cândido da Silva 702, Praia de Fora, Palhoça - SC, CEP 88138-300, Brasil
+            </p>
+            <p>
+              <strong>Contato / Encarregado (DPO):</strong> Francisco Oliveira —{' '}
+              <a href="mailto:francisco@negociodebolso.com" className="text-[#10B981] hover:underline">
+                francisco@negociodebolso.com
+              </a>{' '}
+              |{' '}
+              <a href="mailto:contato@negociodebolso.com" className="text-[#10B981] hover:underline">
+                contato@negociodebolso.com
+              </a>
+            </p>
           </div>
-        </footer>
-      </div>
+        </div>
+
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-white">1. Público-Alvo e Elegibilidade (18+)</h2>
+          <p className="text-[#D4D4D8] leading-relaxed">
+            O <strong>Negócio de Bolso</strong> é uma ferramenta profissional de gestão comercial, frente de caixa (PDV),
+            estoque, finanças e relacionamento com clientes (CRM), destinada exclusivamente a{' '}
+            <strong>pessoas maiores de 18 anos</strong> com capacidade civil e empresarial (microempreendedores,
+            autônomos e pequenos negócios). O aplicativo e o Painel Web{' '}
+            <strong>não são direcionados a crianças ou adolescentes menores de 18 anos</strong> e não realizam
+            publicidade comportamental de terceiros.
+          </p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-white">2. Dados que Coletamos e Finalidade</h2>
+          <ul className="list-disc pl-6 space-y-2 text-[#D4D4D8] leading-relaxed">
+            <li>
+              <strong>Dados de Conta (Plano Nuvem/Premium):</strong> nome, e-mail e identificadores de autenticação
+              para sincronização multi-dispositivo e acesso ao Painel Web (<code>app.negociodebolso.com</code>).
+            </li>
+            <li>
+              <strong>Dados Comerciais Inseridos por Você:</strong> produtos, estoque, vendas, recibos, movimentações
+              financeiras, agendamentos, fichas de serviço e cadastro dos seus clientes. Você é o controlador desses
+              dados perante seus próprios clientes; a Gaia Works atua como operadora de infraestrutura e armazenamento.
+            </li>
+            <li>
+              <strong>Inteligência Artificial (O Gê):</strong> quando você utiliza <strong>o Gê</strong> (seu copiloto
+              de IA), métricas e contextos operacionais autorizados da sua conta são processados para gerar análises de
+              margem, alertas e projeções de fluxo de caixa. Não vendemos seus dados nem os utilizamos para treinar
+              modelos públicos de terceiros.
+            </li>
+            <li>
+              <strong>Uso Offline (Plano Gratuito):</strong> no modo local sem sincronização, seus dados permanecem
+              armazenados exclusivamente no seu dispositivo.
+            </li>
+            <li>
+              <strong>Registros Técnicos:</strong> endereço IP, logs de erro, versão do app e eventos de sincronização
+              para segurança, diagnóstico e cumprimento do Marco Civil da Internet (art. 15).
+            </li>
+          </ul>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-white">3. Compartilhamento e Segurança</h2>
+          <p className="text-[#D4D4D8] leading-relaxed">
+            Não vendemos nem alugamos dados pessoais ou comerciais. Compartilhamos apenas com provedores essenciais de
+            infraestrutura em nuvem, autenticação, processamento de pagamentos (Google Play Billing) e processamento de
+            IA sob obrigações contratuais de confidencialidade e criptografia em trânsito (TLS) e em repouso.
+          </p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-xl font-bold text-white">4. Seus Direitos e Exclusão de Conta (LGPD)</h2>
+          <p className="text-[#D4D4D8] leading-relaxed">
+            Você pode solicitar confirmação de tratamento, acesso, correção, portabilidade ou{' '}
+            <strong>exclusão definitiva da sua conta e dados</strong> diretamente nas configurações do aplicativo/Painel
+            Web ou pelo e-mail{' '}
+            <a href="mailto:contato@negociodebolso.com" className="text-[#10B981] hover:underline">
+              contato@negociodebolso.com
+            </a>{' '}
+            (prazo de atendimento: até 15 dias). Registros fiscais de assinatura exigidos por lei são mantidos pelo
+            prazo legal aplicável.
+          </p>
+        </section>
+
+        <div className="pt-6 border-t border-white/10 flex flex-wrap gap-4 text-sm text-[#A1A1AA]">
+          <Link to="/termos" className="text-[#10B981] hover:underline">
+            Ler Termos de Uso (18+)
+          </Link>
+          <Link to="/ajuda" className="hover:text-white transition">
+            Central de Ajuda
+          </Link>
+        </div>
+      </main>
     </div>
   );
 }
