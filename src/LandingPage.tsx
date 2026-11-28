@@ -3,11 +3,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   Smartphone, MonitorDot, WifiOff, Receipt,
-  Users, BarChart3, ShieldCheck, Sparkles,
-  CheckCircle2, Package, Wallet, CalendarClock,
+  BarChart3, ShieldCheck, Sparkles,
+  CheckCircle2, Package, CalendarClock,
   ChevronDown, ArrowRight, Mail, Instagram, Linkedin
 } from 'lucide-react';
 
+import { NICHES } from './data/siteContent';
 import gaiaWorksLogo from './img/gaiaworks.png';
 
 const fadeIn = {
@@ -41,33 +42,33 @@ const PILARES = [
 const MODULOS = [
   {
     icon: Receipt,
-    title: 'Frente de Caixa (PDV) & Pedidos',
-    desc: 'Vendas rápidas, cálculo de troco, recibos, estornos e múltiplos meios de pagamento (dinheiro, cartão, transferência instantânea e a prazo).'
+    title: 'Cobrança Automática via WhatsApp',
+    desc: 'Organize contas a receber com fila inteligente e lembretes automáticos via WhatsApp usando templates profissionais.'
   },
   {
-    icon: Package,
-    title: 'Produtos & Estoque Inteligente',
-    desc: 'Preço de custo, margem de lucro, entradas, inventário e alertas automáticos de reposição.'
-  },
-  {
-    icon: Users,
-    title: 'Clientes, Crédito & Fidelidade',
-    desc: 'Histórico completo, controle transparente de vendas a prazo, aniversariantes e programa de fidelidade.'
-  },
-  {
-    icon: Wallet,
-    title: 'Caixa & Financeiro Completo',
-    desc: 'Abertura, fechamento, conferência de caixa, fluxo financeiro e projeções futuras.'
+    icon: Sparkles,
+    title: 'Templates com Variáveis Dinâmicas',
+    desc: 'Padronize recibos, confirmações de agenda e cobranças com nome do cliente, valor e vencimento preenchidos automaticamente.'
   },
   {
     icon: CalendarClock,
-    title: 'Serviços & Agendamentos',
-    desc: 'Controle de horários vinculado a clientes, serviços prestados e materiais utilizados.'
+    title: 'Ficha & Questionário de Serviços',
+    desc: 'Crie fichas técnicas, anamneses ou checklists sob medida vinculados a cada cliente e atendimento.'
+  },
+  {
+    icon: MonitorDot,
+    title: 'Multi-dispositivo em Tempo Real',
+    desc: 'Acompanhe o status de sincronização ao vivo entre celular e Painel Web, sem perda de dados mesmo após períodos offline.'
   },
   {
     icon: BarChart3,
-    title: 'Relatórios & Equipe (RBAC)',
-    desc: 'Desempenho por vendedor, exportação em CSV/PDF e controle de acesso por perfil de usuário.'
+    title: 'Relatórios em PDF Solid & Chic',
+    desc: 'Exporte recibos, extratos de vendas e relatórios gerenciais em PDF com diagramação executiva pronta para compartilhar.'
+  },
+  {
+    icon: Package,
+    title: 'Estoque, PDV & O Gê (IA)',
+    desc: 'Frente de caixa offline, margem de lucro e o Gê analisando seus produtos e projetando seu fluxo de caixa.'
   }
 ];
 
@@ -470,7 +471,39 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 2.9 CTA Final */}
+        {/* 2.9 Segmentos / Nichos */}
+        <section className="border-t border-[#2A2A32] py-16">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#10B981]">
+                  VERSÃO 1.2.1 · FEITO PARA O SEU SEGMENTO
+                </span>
+                <h2 className="mt-1 text-2xl font-bold tracking-tight text-[#F4F4F5] sm:text-3xl">
+                  Escolha como o Negócio de Bolso acelera o seu dia a dia
+                </h2>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {NICHES.map((niche) => (
+                <Link
+                  key={niche.slug}
+                  to={niche.route}
+                  className="group rounded-2xl border border-[#2A2A32] bg-[#141417] p-5 transition-colors hover:border-[#10B981]/50"
+                >
+                  <p className="text-sm font-bold text-[#F4F4F5] group-hover:text-[#10B981] transition-colors">
+                    {niche.name}
+                  </p>
+                  <p className="mt-2 text-xs leading-relaxed text-[#A1A1AA]">
+                    {niche.seoDescription}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 2.10 CTA Final */}
         <section className="border-t border-[#2A2A32] py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <div className="rounded-[20px] border border-[#2A2A32] bg-[#141417] px-6 py-14 sm:px-12">
@@ -528,7 +561,8 @@ export default function LandingPage() {
               LinkedIn
             </a>
             <Link to="/privacidade" className="transition-colors hover:text-[#F4F4F5]">Política de Privacidade</Link>
-            <Link to="/ajuda" className="transition-colors hover:text-[#F4F4F5]">Termos de Uso</Link>
+            <Link to="/termos" className="transition-colors hover:text-[#F4F4F5]">Termos de Uso</Link>
+            <Link to="/ajuda" className="transition-colors hover:text-[#F4F4F5]">Ajuda</Link>
           </div>
         </div>
       </footer>
